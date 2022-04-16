@@ -4,7 +4,7 @@ Documentation about my DIY NAS
 
 ## Purpose
 
-I replaced my Synology NAS with a DIY NAS. This is based on [OMV][OMV] and [Docker][Docker]. I want to document this for myself - and anyone interestet in.
+I replaced my Synology NAS with a DIY NAS. This is based on [OMV][OMV] and [Docker][Docker]. I want to document this for myself - and anyone interested in.
 
 ## License
 
