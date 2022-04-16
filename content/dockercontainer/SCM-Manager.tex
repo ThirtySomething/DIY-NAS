@@ -1,0 +1,55 @@
+\subsection{SCM-Manager}
+
+\gls{SCM} provides a comfortable user interface for \gls{git},
+\href{https://www.mercurial-scm.org}{Mercurial} and \gls{svn}. Up to now I use
+\gls{svn} for \href{https://en.wikipedia.org/wiki/Version_control}{version control}.
+Some of my repositories are private and I will never publish them to a public
+hoster like \href{https://github.com}{GitHub} allthough they offer private
+repositories. All my other repositories are hosted on my \gls{NAS} -- the plan
+is to move them to \gls{git} if possible -- just to have them on a more modern
+version control system.
+\bigbreak
+
+First of all we have to create a \gls{Docker} volume for \gls{SCM}. This is
+important for running the backup script.
+
+\tsImage{./images/Docker-Volume-SCM.png}{The docker volume scmmanager}{width=\textwidth}
+
+Then we can setup the container:
+
+\begin{itemize}
+    \item Mapping port \tsFontCode{2222} to \tsFontCode{2222} to enable the \gls{svn} protocol
+    \item Mapping port \tsFontCode{8080} to \tsFontCode{8080} to enable the http protocol
+    \item Mapping of the \gls{SCM} volume to \tsFontCode{/var/lib/scm}
+\end{itemize}
+
+\tsImage{./images/Docker-Container-SCM-Manager-Setup-1.png}{The docker container scmmanager setup 1}{width=\textwidth}
+
+\tsImage{./images/Docker-Container-SCM-Manager-Setup-2.png}{The docker container scmmanager setup 2}{width=\textwidth}
+
+The startup of the container should work without any problems.
+
+\tsImage{./images/SCM-Login.png}{The SCM-Manager login}{width=\textwidth}
+
+After importing my repositories, I've setup a backup job. For this I've updated
+my script \href{https://github.com/ThirtySomething/NAS}{svnExport.sh} that it
+will work for \gls{SCM}. Setting up a cronjob inside a \gls{Docker} container
+is a \href{https://en.wiktionary.org/wiki/pain_in_the_ass}{pita}. The previously
+created volume is required to dynamically export all existing \gls{svn}
+repositories. The command will be something like this one:
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+/bin/bash /srv/<omv-raid>/<path-to-script>/svnExport.sh >>
+/srv/<omv-raid>/<path-to-script>/svnExport.log 2>&1 &
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Cron command for svnExport}
+\end{figure}
+
+The job is then setup in \gls{OMV} scheduled tasks accessing the script.
+\tsFontBold{NOTE:} The path to the \gls{SCM} repositories needs to be set
+inside in the script.
+
+\tsImage{./images/SCM-Backup-SVN.png}{The SCM-Manager backup task}{width=\textwidth}

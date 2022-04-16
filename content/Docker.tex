@@ -1,0 +1,30 @@
+\section{Docker}
+
+By using \gls{Docker} I want to enhance the \gls{NAS} with features which are not
+available out-of-the-box. Especially with services my previous \gls{NAS} offers
+and which are not native available for \gls{OMV}.
+
+\subsection{Docker installation}
+
+The default location of \gls{Docker} is \tsFontCode{/var/lib/docker} on the
+system disk. Allthough the system disk is a fast SSD, I want to install
+\gls{Docker} on the slower RAID storage. So I have to change the path of
+\gls{Docker} storage.
+
+\tsImage{./images/OMV-Docker-Setup.png}{The Docker setup}{width=\textwidth}
+
+In case \gls{Docker} is already installed, see \href{https://www.reddit.com/r/OpenMediaVault/comments/fl40gf/moving_docker_storage/}{here}
+how to move the \gls{Docker} storage to another location.
+
+\subsection{Portainer}
+
+To have more comfort in dealing with \gls{Docker} we install also \gls{Portainer}
+from the \gls{OMVE}.
+
+\tsImage{./images/OMV-Portainer-Setup.png}{The Portainer setup}{width=\textwidth}
+
+After installation \gls{Portainer} is up and running.
+
+\tsImage{./images/OMV-Portainer-Login.png}{The Portainer login}{width=\textwidth}
+
+\custInputFile{DockerContainer}

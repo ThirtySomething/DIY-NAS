@@ -1,0 +1,91 @@
+\section{OMV plugins}
+
+\subsection{ClamAV}\label{subsec:ClamAV}
+
+To protect the data I want to use an antivirus program. As open source solution
+there is \href{https://www.clamav.net}{ClamAV} available -- and also as plugin
+for \gls{OMV}.
+
+\tsImage{./images/OMV-Plugin-ClamAV.png}{The OMV ClamAV plugin}{width=\textwidth}
+
+In the setup we use the previously defined quarantine folder.
+
+\tsImage{./images/OMV-Antivirus-Settings.png}{The antivirus settings}{width=\textwidth}
+
+I enabled a scan on access for specific folders.
+
+\tsImage{./images/OMV-Antivirus-OnAccessScan.png}{The antivirus on access scan}{width=\textwidth}
+
+Also I've enabled a scheduled scan for these folders, too.
+
+\tsImage{./images/OMV-Antivirus-ScheduledScan.png}{The antivirus scheduled scan}{width=\textwidth}
+
+Maybe somebody will claim that all scheduled scans run on the same time.\linebreak
+Yes -- this was setup to check the power of the CPU. The system load increases
+to a load of about 3 -- that's fantastic from my point of view! This means that
+there are more than enough reserves. When I'm spreading the schedule I can
+lower the load.
+
+\tsImage{./images/OMV-Antivirus-Load.png}{The antivirus system load on scan}{width=\textwidth}
+
+\subsection{MiniDLNA}
+
+To stream music and videos from the \gls{NAS} to the network I'm using the
+\href{https://sourceforge.net/projects/minidlna/}{ReadyDLNA} media server
+software. In \gls{OMV} this is used with the oldname \tsFontCode{MiniDLNA}.
+
+\tsImage{./images/OMV-Plugin-MiniDLNA.png}{The MiniDLNA plugin}{width=\textwidth}
+
+The basic setup is simple - I've checked the \tsFontCode{Enable} box and that's
+it.
+
+\tsImage{./images/OMV-MiniDLNA-Settings.png}{The MiniDLNA settings}{width=\textwidth}
+
+Then I have to define the shares and the kind of content of the shares.
+
+\tsImage{./images/OMV-MiniDLNA-Shares.png}{The MiniDLNA shares}{width=\textwidth}
+
+\subsection{OMV extras}
+
+The \gls{OMVE} are not available in the plugin list. The way to go to install
+them is described \href{https://forum.openmediavault.org/index.php?thread/39594-omvextras-for-omv6/}{here}.
+Login as user \tsFontCode{root} using SSH and enter the following command:
+
+\begin{figure}[H]
+    \centering
+    \begin{tiny}
+        \begin{BVerbatim}
+sudo su -
+wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash
+        \end{BVerbatim}
+    \end{tiny}
+    \tsCaptionLabelFigure{The OMV extras installation}
+\end{figure}
+
+Using this plugin enables the \gls{Docker} and \gls{Portainer} installation
+to enhance the capabilities of the \gls{NAS}.
+
+\tsImage{./images/OMV-Plugin-OMV-Extras.png}{The OMV extras plugin}{width=\textwidth}
+
+\subsection{Autoshutdown}
+
+To save some energy we want the system to shutdown when not used and to wake up
+when used. So we want to use the autoshutdown plugin and the \gls{WOL} feature.
+
+\tsImage{./images/OMV-Plugin-Autoshutdown.png}{The OMV autoshutdown plugin}{width=\textwidth}
+
+As first step we have to enable the \gls{WOL} on the network card. You can find
+the checkbox as last option ot the \tsFontCode{Advanced settings} section.
+
+\tsImage{./images/OMV-NIC-WOL.png}{The OMV network card setup}{width=\textwidth}
+
+Then we have to configure/setup the autoshutdown plugin. First step is to
+enable the autoshutdown. Second step is to force an uptime between 23:30 and
+02:00 to ensure backup is done. The rest is left with default settings and
+might be updated at a later point.
+
+\tsImage{./images/OMV-Autoshutdown-Setup-1.png}{The autoshutdown setup 1}{width=\textwidth}
+
+\tsImage{./images/OMV-Autoshutdown-Setup-2.png}{The autoshutdown setup 2}{width=\textwidth}
+
+\tsImage{./images/OMV-Autoshutdown-Setup-3.png}{The autoshutdown setup 3}{width=\textwidth}

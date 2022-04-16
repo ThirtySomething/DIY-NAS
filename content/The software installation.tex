@@ -1,0 +1,89 @@
+\section{The software installation}
+
+\subsection{The operating system}
+
+The basic installation of \gls{OMV} works without any problems. This is known
+from debian. Additional \href{https://www.openmediavault.org/?page_id=1206}{Volker Theile},
+the founder of the \gls{OMV} project, and his team have done a very good job.
+Thank you guys!
+
+\tsImage{./images/OMV-Logon.png}{The OMV login page}{width=\textwidth}
+
+\subsection{The disks}
+
+All attached disks are working. The system disk is a NVME SSD with a 250 GB
+capacity. All others are 4 TB WD RED disks.
+
+\tsImage{./images/OMV-Disks.png}{The OMV disks}{width=\textwidth}
+
+\subsection{The RAID storage}
+
+Configuring the \href{https://en.wikipedia.org/wiki/RAID}{RAID} was also less
+problematic. But there is an important point: As long as the RAID system is
+created, do not use the RAID! During the RAID build I was playing around with
+\href{https://www.openmediavault.org/?page_id=2014}{OMV plugins} to see the
+diskstats -- and damaged the RAID build. After a reboot the system hangs on
+the filesystem check. I was shocked - also about the large amount of blocks
+the fsck found and tried to repair. It took a while to understand what happens.
+Then I've startet from scratch and everything was okay. The creation of the
+file system at the end went without problems. A filesystem check found nothing
+to do.
+
+\tsImage{./images/OMV-Raid.png}{The OMV RAID}{width=\textwidth}
+
+\subsection{The file system}
+
+This was a simple step -- just create a filesystem on the previously created
+RAID volume.
+
+\tsImage{./images/OMV-Filesystem.png}{The OMV filesystem on the RAID}{width=\textwidth}
+
+\subsection{Shared folders}\label{subsec:Shared folders}
+
+Some common folders should be defined before anything else is done:
+
+\begin{itemize}
+    \item The folder \tsFontCode{docker} for the use of \gls{Docker}.
+    \item The folder \tsFontCode{homes} as base folder for the users home directories.
+    \item The folder \tsFontCode{music} for the miniDLNA plugin.
+    \item The folder \tsFontCode{quarantine} for the use of \nameref{subsec:ClamAV}.
+    \item The folder \tsFontCode{video} also for the miniDLNA plugin.
+\end{itemize}
+
+\tsImage{./images/OMV-Sharedfolders.png}{The OMV shared folders}{width=\textwidth}
+
+This \tsTextQuoteG{shared folders} are defined as container to be used inside
+of \gls{OMV}. To make them accessible from the network you have to enable
+services for them.
+
+\subsection{Users}
+
+In the settings the option \tsFontCode{User home directory} is enabled and
+points to the previously created \tsFontCode(homes) folder. Then I created
+the users.
+
+\tsImage{./images/OMV-Users-Directory.png}{The OMV users home directory}{width=\textwidth}
+
+\subsection{CIFS shares}
+
+Simple - enable the \tsFontCode{SMB/CIFS} service, enable the \tsFontCode{home
+directories} and then create shares for the previously defined \tsFontCode{shared
+folders}. Allow read/write access for the administrator of the shares (me),
+the others got read access to them.
+
+\tsImage{./images/OMV-CIFS-Settings.png}{The OMV CIFS settings}{width=\textwidth}
+
+\tsImage{./images/OMV-CIFS-Shares.png}{The OMV CIFS shares}{width=\textwidth}
+
+As you can see there is actualy no public access to this shares. This means
+that only priviledged users can access them.
+
+\subsection{Tuning}
+
+\subsubsection{SMB/CIFS}
+
+Transfering data from the old \gls{NAS} to the new one takes a lot of time. To
+speed up the process I searched for some tuning and found this
+\href{https://techie-show.com/open-media-vault-smb-performance-quick-win/}{here}:
+
+\tsImage{./images/OMV-CIFS-Settings-Advanced.png}{The OMV advanced CIFS settings}{width=\textwidth}

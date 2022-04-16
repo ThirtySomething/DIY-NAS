@@ -1,0 +1,81 @@
+\section{Search for alternatives}
+
+\subsection{Use a mini PC in front of the NAS}
+
+Realizing this situation I was searching for alternatives. The first idea was
+to use a \href{https://www.zotac.com/at/product/mini_pcs/id41-plus}{mini PC} in
+front of the \gls{NAS}. This failed for some reasons.
+
+\begin{itemize}
+    \item Using the \gls{NAS} directly for \gls{Docker} volumes
+    \item The CPU of the mini PC does not support \href{https://en.wikipedia.org/wiki/X86_virtualization}{Intel VT}
+    \item The network as bottleneck for \gls{Docker} containers
+\end{itemize}
+
+\subsection{Hardware alternatives}
+
+Then I decided to by a new \gls{NAS} system. But which kind of \gls{NAS} will
+it be? I've spent a long time to search the internet for possible soultions.
+I didn't know about the possibility to pimp a \href{https://www.terra-master.com}{TerraMaster \gls{NAS}}
+with a different \href{https://www.youtube.com/watch?v=f9Fh8XgREJ0}{OS}. This
+is also possible for \href{https://www.westerndigital.com}{Western Digital \gls{NAS}}
+as described \href{https://community.wd.com/t/firmware-freenas-on-pr4100-updated/218730/11}{here}
+and \href{https://forum.openmediavault.org/index.php?thread/37009-can-i-install-omv-on-a-wd-nas/}{here}.
+Also the variant with a mini PC and separated storage case was interesting. The
+idea is to get the most out of money, so the ranking here is done by
+price/performance ratio and the DIY \gls{NAS} wins the comparison.
+
+\begin{itemize}
+    \item DIY \gls{NAS} system on PC base
+    \item DIY \gls{NAS} system with separated storage case and mini PC
+    \item Commercial \gls{NAS} system
+    \item Commercial \gls{NAS} with custom OS
+\end{itemize}
+
+\subsection{The planned hardware}
+
+When comparing the different hardware solutions, I also made a comparison
+between an Intel and an AMD based \gls{NAS}. The AMD variant won the price/power
+chapter, so I decided to buy:
+
+\begin{itemize}
+    \item 32GB G.Skill RipJaws V black DDR4-3200 DIMM Dual Kit
+    \item 250GB Samsung 970 Evo Plus M.2 2280
+    \item 400 Watt be quiet! Pure Power 11 CM Modular 80+ Gold
+    \item Black Fractal Design Node 304 cube without power supply
+    \item 4x 4000GB WD Red Plus WD40EFZX 128MB 3.5"
+    \item ASRock Fatal1ty B450 Gaming-ITX/AC AMD B450
+    \item AMD Athlon 3000G with Radeon Vega Graphics 3.5GHz
+    \item Noctua NH-L9a-AM4 topblow cooler
+\end{itemize}
+
+\subsection{The bought hardware}
+
+\tsImage{./images/John-Lennon-Quote.jpg}{John Lennon}{width=\textwidth}
+
+This means that the availability of chips and other events affect the market
+and make it difficult to realize these plans. For example, motherboards in
+mini-ITX format with AM4 socket are really hard to get. That's why I revised
+my decision on the components:
+
+\begin{itemize}
+    \item 32GB G.Skill RipJaws V black DDR4-3200 DIMM Dual Kit
+    \item 250GB Samsung 970 Evo Plus M.2 2280
+    \item 400 Watt be quiet! Pure Power 11 CM Modular 80+ Gold
+    \item Black Fractal Design Node 304 cube without power supply
+    \item 4x 4000GB WD Red Plus WD40EFZX 128MB 3.5"
+    \item ASRock H610M-ITX/AC mITX Intel H610 DDR4 S1700
+    \item Intel Core I3-12100 tray
+    \item Noctua NH-L9i-17xx topblow cooler
+\end{itemize}
+
+The difference is that the CPU is a latest generation
+\href{https://www.intel.com/content/www/us/en/products/sku/134584/intel-core-i312100-processor-12m-cache-up-to-4-30-ghz/specifications.html?wapkw=12100}{Intel I3}
+processor. The corresponding
+\href{https://www.asrock.com/MB/Intel/H610M-ITXac/index.de.asp}{motherboard}
+is also brand new. Both were only launched in Q4/2022. This has some
+consequences: \gls{OMV} 5 does not support the network chip of the motherboard.
+So I decided to install the \gls{OMV} 6 beta on my DIY \gls{NAS}. I also tried
+\href{https://www.truenas.com/}{TrueNAS} -- it looks much more professional
+than \gls{OMV}, but it is also a bit more complicated to understand and
+configure. It also doesn't have native support for \gls{Docker}.
