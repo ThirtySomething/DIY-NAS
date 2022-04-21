@@ -23,12 +23,15 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Major content of DIY NAS description
+%% Appendix definition DIY NAS description
 %% -----------------------------------------------------------------------------
-\custInputFile{Initial situation}
-\custInputFile{Search for alternatives}
-\custInputFile{The hardware build}
-\custInputFile{The software installation}
-\custInputFile{OMV plugins}
-\custInputFile{Docker}
-\custInputFile{Ports}
+
+% Start appendizies on new page
+\newpage
+\appendix
+
+\tsAppendixSection{svnExport.sh}
+
+\begin{tiny}
+    \VerbatimInput{./vendor/NAS/svnExport.sh}
+\end{tiny}

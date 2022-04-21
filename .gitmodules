@@ -1,3 +1,6 @@
 [submodule "vendor/LatexTemplate"]
 	path = vendor/LatexTemplate
 	url = https://github.com/ThirtySomething/LatexTemplate
+[submodule "vendor/NAS"]
+	path = vendor/NAS
+	url = https://github.com/ThirtySomething/NAS

@@ -23,12 +23,29 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Major content of DIY NAS description
+%% Content of DIY NAS description
 %% -----------------------------------------------------------------------------
-\custInputFile{Initial situation}
-\custInputFile{Search for alternatives}
-\custInputFile{The hardware build}
-\custInputFile{The software installation}
-\custInputFile{OMV plugins}
-\custInputFile{Docker}
-\custInputFile{Ports}
+
+\section{Ports}
+
+It's always a good idea to remember the used ports. This section will give
+you an overview about the used ports and the name of the program using this
+this port.
+
+\begin{small}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.6\textwidth} | p{0.35\textwidth} | }
+        \hline
+        \tsFontBold{Program} & \tsFontBold{Port} \\
+        \hline
+        \gls{OMV} GUI        & 80                \\
+        \hline
+        \gls{Portainer}      & 9000              \\
+        \hline
+        \gls{SCM} UI         & 8080              \\
+        \hline
+        \gls{SCM} ssh        & 2222              \\
+        \hline
+        \tsCaptionLabelTable{Used ports}
+    \end{longtable}
+\end{small}
