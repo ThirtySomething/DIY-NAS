@@ -26,34 +26,21 @@
 %% Content of DIY NAS description
 %% -----------------------------------------------------------------------------
 
-\section{Ports}
+\subsection{Syncthing}
 
-It's always a good idea to remember the used ports. This section will give
-you an overview about the used ports and the name of the program using this
-this port.
+\gls{ST} is a file synchronization service. I use this to backup automatically
+data from my smartphone to the PC and then from the PC to the NAS. The setup
+is easy regarding the \href{https://github.com/syncthing/syncthing/blob/main/README-Docker.md}{Docker README}
+of the project.
+\bigbreak
 
-\begin{small}
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.3\textwidth} | p{0.3\textwidth} | p{0.35\textwidth} | }
-        \hline
-        \tsFontBold{Program} & \tsFontBold{Port} & \tsFontBold{Comment}               \\
-        \hline
-        \gls{OMV}            & 80                & UI                                 \\
-        \hline
-        \gls{Portainer}      & 9000              & -                                  \\
-        \hline
-        \gls{SCM}            & 8080              & UI                                 \\
-        \hline
-        \gls{SCM}            & 2222              & ssh                                \\
-        \hline
-        \gls{ST}             & 8384              & UI                                 \\
-        \hline
-        \gls{ST}             & TCP:22000         & Filetransfer                       \\
-        \hline
-        \gls{ST}             & UDP:22000         & Filetransfer                       \\
-        \hline
-        \gls{ST}             & UPD:21027         & Receive local discovery broadcasts \\
-        \hline
-        \tsCaptionLabelTable{Used ports}
-    \end{longtable}
-\end{small}
+First of all I've created a \gls{Docker} volume. In the next step I've setup
+the container regarding the ports and map the created volume to \tsFontCode{/var/syncthing}.
+An important step is to set the environment variables \tsFontCode{PUID} and
+\tsFontCode{GUID}. Then the container will run \tsFontCode{unless stopped}.
+\bigbreak
+
+Setting up the synchronized folders is as usual with \gls{ST}. The result
+may look like this one.
+
+\tsImage{./images/Syncthing.png}{Syncthing}{width=\textwidth}
