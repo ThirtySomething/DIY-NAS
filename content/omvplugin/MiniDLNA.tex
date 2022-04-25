@@ -1,0 +1,44 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% Content of DIY NAS description
+%% -----------------------------------------------------------------------------
+
+\subsection{MiniDLNA}
+
+To stream music and videos from the \gls{NAS} to the network I'm using the
+\href{https://sourceforge.net/projects/minidlna/}{ReadyDLNA} media server
+software. In \gls{OMV} this is used with the oldname \tsFontCode{MiniDLNA}.
+
+\tsImage{./images/OMV-Plugin-MiniDLNA.png}{The MiniDLNA plugin}{width=\textwidth}
+
+The basic setup is simple - I've checked the \tsFontCode{Enable} box and that's
+it.
+
+\tsImage{./images/OMV-MiniDLNA-Settings.png}{The MiniDLNA settings}{width=\textwidth}
+
+Then I have to define the shares and the kind of content of the shares.
+
+\tsImage{./images/OMV-MiniDLNA-Shares.png}{The MiniDLNA shares}{width=\textwidth}

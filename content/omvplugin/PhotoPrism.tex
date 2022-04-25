@@ -1,0 +1,51 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% Content of DIY NAS description
+%% -----------------------------------------------------------------------------
+
+\subsection{PhotoPrism}
+
+I used the app \gls{PP} to de-duplicate my images. The last 15 years a lot of
+duplicates blowed up the collection. Let's start with the first step, the
+installation of the plugin.
+
+\tsImage{./images/OMV-Plugin-PhotoPrism.png}{The OMV PhotoPrism plugin}{width=\textwidth}
+
+The next step has been the creation of the following shared folders:
+
+\begin{itemize}
+    \item \tsFontCode{photoprism} -- The location for the image database.
+    \item \tsFontCode{photoprism_import} -- The share used for image import.
+    \item \tsFontCode{photos}  -- The final location of the photos in an organized way.
+\end{itemize}
+
+\tsImage{./images/OMV-Photoprism-Setup.png}{The OMV PhotoPrism setup}{width=\textwidth}
+
+The setup is easy, just set the shares -- that's all folks. Okay -- I remember
+some images I made with a digital SLR camera. They are large as I remember, so
+I've increased the filesize limit to 5 GB.
+
+\tsImage{./images/Photoprism-Login.png}{The PhotoPrism login}{width=\textwidth}

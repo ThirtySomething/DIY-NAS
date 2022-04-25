@@ -1,0 +1,53 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% Content of DIY NAS description
+%% -----------------------------------------------------------------------------
+
+\subsection{Autoshutdown}
+
+To save some energy we want the system to shutdown when not used and to wake up
+when used. So we want to use the autoshutdown plugin and the \gls{WOL} feature.
+\tsFontBold{NOTE:} Don't forget to enable \gls{WOL} in the BIOS. For my system
+there have been two settings, one setting on the adapter itself and one setting
+in the boot options.
+
+\tsImage{./images/OMV-Plugin-Autoshutdown.png}{The OMV autoshutdown plugin}{width=\textwidth}
+
+As first step we have to enable the \gls{WOL} on the network card. You can find
+the checkbox as last option ot the \tsFontCode{Advanced settings} section.
+
+\tsImage{./images/OMV-NIC-WOL.png}{The OMV network card setup}{width=\textwidth}
+
+Then we have to configure/setup the autoshutdown plugin. First step is to
+enable the autoshutdown. Second step is to force an uptime between 23:30 and
+02:00 to ensure backup is done. The rest is left with default settings and
+might be updated at a later point.
+
+\tsImage{./images/OMV-Autoshutdown-Setup-1.png}{The autoshutdown setup 1}{width=\textwidth}
+
+\tsImage{./images/OMV-Autoshutdown-Setup-2.png}{The autoshutdown setup 2}{width=\textwidth}
+
+\tsImage{./images/OMV-Autoshutdown-Setup-3.png}{The autoshutdown setup 3}{width=\textwidth}
