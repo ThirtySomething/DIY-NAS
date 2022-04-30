@@ -46,9 +46,9 @@ important for running the backup script.
 Then we can setup the container:
 
 \begin{itemize}
-    \item Mapping port \tsFontCode{2222} to \tsFontCode{2222} to enable the \gls{svn} protocol
-    \item Mapping port \tsFontCode{8080} to \tsFontCode{8080} to enable the http protocol
-    \item Mapping of the \gls{SCM} volume to \tsFontCode{/var/lib/scm}
+    \item Mapping port \tsTextMonospace{2222} to \tsTextMonospace{2222} to enable the \gls{svn} protocol
+    \item Mapping port \tsTextMonospace{8080} to \tsTextMonospace{8080} to enable the http protocol
+    \item Mapping of the \gls{SCM} volume to \tsTextMonospace{/var/lib/scm}
 \end{itemize}
 
 \tsImage{./images/Docker-Container-SCM-Manager-Setup-1.png}{The docker container scmmanager setup 1}{width=\textwidth}
@@ -80,7 +80,7 @@ For the script please see appendix \ref{appendix:svnExport.sh}.
 \bigbreak
 
 The job is then setup in \gls{OMV} scheduled tasks accessing the script.
-\tsFontBold{NOTE:} The path to the \gls{SCM} repositories needs to be set
+\tsTextBold{NOTE:} The path to the \gls{SCM} repositories needs to be set
 inside in the script.
 
 \tsImage{./images/SCM-Backup-SVN.png}{The SCM-Manager backup task}{width=\textwidth}

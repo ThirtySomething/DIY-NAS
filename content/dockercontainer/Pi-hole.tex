@@ -26,24 +26,11 @@
 %% Content of DIY NAS description
 %% -----------------------------------------------------------------------------
 
-\subsection{OMV extras}
+\subsection{Pi-hole}\label{subsec:Pi-hole}
 
-The \gls{OMVE} are not available in the plugin list. The way to go to install
-them is described \href{https://forum.openmediavault.org/index.php?thread/39594-omvextras-for-omv6/}{here}.
-Login as user \tsTextMonospace{root} using SSH and enter the following command:
-
-\begin{figure}[H]
-    \centering
-    \begin{tiny}
-        \begin{BVerbatim}
-sudo su -
-wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash
-        \end{BVerbatim}
-    \end{tiny}
-    \tsCaptionLabelFigure{The OMV extras installation}
-\end{figure}
-
-Using this plugin enables the \gls{Docker} and \gls{Portainer} installation
-to enhance the capabilities of the \gls{NAS}.
-
-\tsImage{./images/OMV-Plugin-OMV-Extras.png}{The OMV extras plugin}{width=\textwidth}
+I'm already using \gls{PH} on a old \href{https://www.raspberrypi.com/products/raspberry-pi-2-model-b/}{Raspberry Pi 2B}
+and I'm very pleased with that software. Because of it's nature working as a
+\href{https://en.wikipedia.org/wiki/Domain_Name_System#DNS_resolvers}{DNS resolver}
+I won't move this to the NAS. The reason is quite simple -- this will influence
+the \nameref{subsec:Autoshutdown} plugin and/or will make it obsolete. This is
+not what I want to achieve.

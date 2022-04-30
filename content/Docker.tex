@@ -34,7 +34,7 @@ and which are not native available for \gls{OMV}.
 
 \subsection{Docker installation}
 
-The default location of \gls{Docker} is \tsFontCode{/var/lib/docker} on the
+The default location of \gls{Docker} is \tsTextMonospace{/var/lib/docker} on the
 system disk. Allthough the system disk is a fast SSD, I want to install
 \gls{Docker} on the slower RAID storage. So I have to change the path of
 \gls{Docker} storage.
@@ -59,14 +59,14 @@ After installation \gls{Portainer} is up and running.
 
 \begin{figure}[H]
     \begin{itemize}
-        \item \tsFontStrikethrough{\href{https://www.portainer.io/}{Portainer} -- UI for docker} --
+        \item \tsTextStrikethrough{\href{https://www.portainer.io/}{Portainer} -- UI for docker} --
               done with docker installation.
-        \item \tsFontStrikethrough{\href{https://www.scm-manager.org/}{SCM-Manager} -- SCM with git, svn and hg} --
+        \item \tsTextStrikethrough{\href{https://www.scm-manager.org/}{SCM-Manager} -- SCM with git, svn and hg} --
               done, works fine.
         \item \href{https://mariadb.org/}{MariaDB} -- Database for various projects
         \item \href{https://www.phpmyadmin.net/}{phpMyAdmin} -- UI for the database
         \item \href{https://mosquitto.org/}{Mosquitto} -- A \href{https://mqtt.org/}{MQTT} broker
-        \item \tsFontStrikethrough{\href{https://syncthing.net/}{Syncthing} -- File synchronization} --
+        \item \tsTextStrikethrough{\href{https://syncthing.net/}{Syncthing} -- File synchronization} --
               done.
         \item \href{https://nextcloud.com/}{Nextcloud} -- Own cloud service
         \item Backup server?
@@ -75,7 +75,8 @@ After installation \gls{Portainer} is up and running.
                   \item \href{https://www.duplicati.com/}{Duplicati}
               \end{itemize}
         \item \href{https://docs.min.io/}{MinIO} -- As data sink for backup?
-        \item \href{https://pi-hole.net/}{Pi-Hole} -- Adblocker for the network
+        \item \tsTextStrikethrough{\href{https://pi-hole.net/}{Pi-hole} -- Adblocker for the network} --
+              won't do that, see section \ref{subsec:Pi-hole} for explanation
     \end{itemize}
     \tsCaptionLabelFigure{Containerlist}
 \end{figure}
