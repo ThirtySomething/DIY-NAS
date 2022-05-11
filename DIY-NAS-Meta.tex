@@ -38,12 +38,15 @@
 % Defines the minor version number of the document - see https://semver.org
 \newcommand{\tsVersionMinor}[1]{0}
 % Defines the patch number of the document - see https://semver.org
-\newcommand{\tsVersionPatch}[1]{7}
+\newcommand{\tsVersionPatch}[1]{8}
 % Defines the version string of the document - see https://semver.org
 \newcommand{\tsVersionString}[1]{V\tsVersionMajor{}.\tsVersionMinor{}.\tsVersionPatch{}}
 % ------------------------------------------------------------------------------
 % Definition of document features
 % ------------------------------------------------------------------------------
+% Definition of document type, either article or book
+\newcommand{\tsDocumentType}[1]{article}
+% \newcommand{\tsDocumentType}[1]{book}
 % Switch to enable appendix
 \newif\ifUseTsAppendix
 \UseTsAppendixtrue
@@ -80,7 +83,7 @@
 % Defines the filename of the content
 \newcommand{\tsAppendixFile}[1]{DIY-NAS-Appendix.tex}
 % Defines the filename of the commands
-\newcommand{\tsCommandsFile}[1]{./vendor/LatexTemplate/TSCommands.tex}
+\newcommand{\tsCommandsFile}[1]{./vendor/LatexTemplate/TSTemplate-Commands.tex}
 % Defines the filename of the content
 \newcommand{\tsContentFile}[1]{DIY-NAS-Content.tex}
 % Defines the filename of the custom commands
@@ -90,8 +93,8 @@
 % Defines the filename of the history
 \newcommand{\tsHistoryFile}[1]{DIY-NAS-History.tex}
 % Defines the filename of the hyphenation
-\newcommand{\tsHyphenationFile}[1]{./vendor/LatexTemplate/TSHyphenation.tex}
+\newcommand{\tsHyphenationFile}[1]{./vendor/LatexTemplate/TSTemplate-Hyphenation.tex}
 % Defines the filename of the logo
-\newcommand{\tsLogoFile}[1]{./vendor/LatexTemplate/Images/TSLogo.png}
+\newcommand{\tsLogoFile}[1]{./vendor/LatexTemplate/TSTemplate-Logo.png}
 % Defines the filename of the title
-\newcommand{\tsTitlePageFile}[1]{./vendor/LatexTemplate/TSTitlePage.tex}
+\newcommand{\tsTitlePageFile}[1]{./vendor/LatexTemplate/TSTemplate-TitlePage.tex}

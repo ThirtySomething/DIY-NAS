@@ -41,7 +41,7 @@ version control system.
 First of all we have to create a \gls{Docker} volume for \gls{SCM}. This is
 important for running the backup script.
 
-\tsImage{./images/Docker-Volume-SCM.png}{The docker volume scmmanager}{width=\textwidth}
+\tsImageO{./images/Docker-Volume-SCM.png}{The docker volume scmmanager}{\custCopyright{}}{width=\textwidth}
 
 Then we can setup the container:
 
@@ -51,13 +51,13 @@ Then we can setup the container:
     \item Mapping of the \gls{SCM} volume to \tsTextMonospace{/var/lib/scm}
 \end{itemize}
 
-\tsImage{./images/Docker-Container-SCM-Manager-Setup-1.png}{The docker container scmmanager setup 1}{width=\textwidth}
+\tsImageO{./images/Docker-Container-SCM-Manager-Setup-1.png}{The docker container scmmanager setup 1}{\custCopyright{}}{width=\textwidth}
 
-\tsImage{./images/Docker-Container-SCM-Manager-Setup-2.png}{The docker container scmmanager setup 2}{width=\textwidth}
+\tsImageO{./images/Docker-Container-SCM-Manager-Setup-2.png}{The docker container scmmanager setup 2}{\custCopyright{}}{width=\textwidth}
 
 The startup of the container should work without any problems.
 
-\tsImage{./images/SCM-Login.png}{The SCM-Manager login}{width=\textwidth}
+\tsImageO{./images/SCM-Login.png}{The SCM-Manager login}{\custCopyright{}}{width=\textwidth}
 
 After importing my repositories, I've setup a backup job. For this I've updated
 my script \href{https://github.com/ThirtySomething/NAS}{svnExport.sh} that it
@@ -83,4 +83,4 @@ The job is then setup in \gls{OMV} scheduled tasks accessing the script.
 \tsTextBold{NOTE:} The path to the \gls{SCM} repositories needs to be set
 inside in the script.
 
-\tsImage{./images/SCM-Backup-SVN.png}{The SCM-Manager backup task}{width=\textwidth}
+\tsImageO{./images/SCM-Backup-SVN.png}{The SCM-Manager backup task}{\custCopyright{}}{width=\textwidth}

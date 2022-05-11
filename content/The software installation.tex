@@ -35,14 +35,14 @@ from debian. Additional \href{https://www.openmediavault.org/?page_id=1206}{Volk
 the founder of the \gls{OMV} project, and his team have done a very good job.
 Thank you guys!
 
-\tsImage{./images/OMV-Logon.png}{The OMV login page}{width=\textwidth}
+\tsImageO{./images/OMV-Logon.png}{The OMV login page}{\custCopyright{}}{width=\textwidth}
 
 \subsection{The disks}
 
 All attached disks are working. The system disk is a NVME SSD with a 250 GB
 capacity. All others are 4 TB WD RED disks.
 
-\tsImage{./images/OMV-Disks.png}{The OMV disks}{width=\textwidth}
+\tsImageO{./images/OMV-Disks.png}{The OMV disks}{\custCopyright{}}{width=\textwidth}
 
 \subsection{The RAID storage}
 
@@ -57,14 +57,14 @@ Then I've startet from scratch and everything was okay. The creation of the
 file system at the end went without problems. A filesystem check found nothing
 to do.
 
-\tsImage{./images/OMV-Raid.png}{The OMV RAID}{width=\textwidth}
+\tsImageO{./images/OMV-Raid.png}{The OMV RAID}{\custCopyright{}}{width=\textwidth}
 
 \subsection{The file system}
 
 This was a simple step -- just create a filesystem on the previously created
 RAID volume.
 
-\tsImage{./images/OMV-Filesystem.png}{The OMV filesystem on the RAID}{width=\textwidth}
+\tsImageO{./images/OMV-Filesystem.png}{The OMV filesystem on the RAID}{\custCopyright{}}{width=\textwidth}
 
 \subsection{Shared folders}\label{subsec:Shared folders}
 
@@ -78,7 +78,7 @@ Some common folders should be defined before anything else is done:
     \item The folder \tsTextMonospace{video} also for the miniDLNA plugin.
 \end{itemize}
 
-\tsImage{./images/OMV-Sharedfolders.png}{The OMV shared folders}{width=\textwidth}
+\tsImageO{./images/OMV-Sharedfolders.png}{The OMV shared folders}{\custCopyright{}}{width=\textwidth}
 
 This \tsTextQuoteG{shared folders} are defined as container to be used inside
 of \gls{OMV}. To make them accessible from the network you have to enable
@@ -87,10 +87,10 @@ services for them.
 \subsection{Users}
 
 In the settings the option \tsTextMonospace{User home directory} is enabled and
-points to the previously created \tsTextMonospace(homes) folder. Then I created
+points to the previously created \tsTextMonospace{homes} folder. Then I created
 the users.
 
-\tsImage{./images/OMV-Users-Directory.png}{The OMV users home directory}{width=\textwidth}
+\tsImageO{./images/OMV-Users-Directory.png}{The OMV users home directory}{\custCopyright{}}{width=\textwidth}
 
 \subsection{CIFS shares}
 
@@ -99,9 +99,9 @@ directories} and then create shares for the previously defined \tsTextMonospace{
 folders}. Allow read/write access for the administrator of the shares (me),
 the others got read access to them.
 
-\tsImage{./images/OMV-CIFS-Settings.png}{The OMV CIFS settings}{width=\textwidth}
+\tsImageO{./images/OMV-CIFS-Settings.png}{The OMV CIFS settings}{\custCopyright{}}{width=\textwidth}
 
-\tsImage{./images/OMV-CIFS-Shares.png}{The OMV CIFS shares}{width=\textwidth}
+\tsImageO{./images/OMV-CIFS-Shares.png}{The OMV CIFS shares}{\custCopyright{}}{width=\textwidth}
 
 As you can see there is actualy no public access to this shares. This means
 that only priviledged users can access them.
@@ -114,4 +114,4 @@ Transfering data from the old \gls{NAS} to the new one takes a lot of time. To
 speed up the process I searched for some tuning and found this
 \href{https://techie-show.com/open-media-vault-smb-performance-quick-win/}{here}:
 
-\tsImage{./images/OMV-CIFS-Settings-Advanced.png}{The OMV advanced CIFS settings}{width=\textwidth}
+\tsImageO{./images/OMV-CIFS-Settings-Advanced.png}{The OMV advanced CIFS settings}{\custCopyright{}}{width=\textwidth}
