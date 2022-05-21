@@ -38,22 +38,29 @@ is to move them to \gls{git} if possible -- just to have them on a more modern
 version control system.
 \bigbreak
 
-First of all we have to create a \gls{Docker} volume for \gls{SCM}. This is
-important for running the backup script.
+The definition for \gls{DoCo} looks like:
 
-\tsImageO{./images/Docker-Volume-SCM.png}{The docker volume scmmanager}{\custCopyright{}}{width=\textwidth}
-
-Then we can setup the container:
-
-\begin{itemize}
-    \item Mapping port \tsTextMonospace{2222} to \tsTextMonospace{2222} to enable the \gls{svn} protocol
-    \item Mapping port \tsTextMonospace{8080} to \tsTextMonospace{8080} to enable the http protocol
-    \item Mapping of the \gls{SCM} volume to \tsTextMonospace{/var/lib/scm}
-\end{itemize}
-
-\tsImageO{./images/Docker-Container-SCM-Manager-Setup-1.png}{The docker container scmmanager setup 1}{\custCopyright{}}{width=\textwidth}
-
-\tsImageO{./images/Docker-Container-SCM-Manager-Setup-2.png}{The docker container scmmanager setup 2}{\custCopyright{}}{width=\textwidth}
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+version: '3.7'
+services:
+  scmmanager:
+    image: cloudogu/scm-manager:latest
+    restart: unless-stopped
+    ports:
+      - 2222:2222
+      - 8080:8080
+    volumes:
+      - scm-config:/var/cache/scm/work
+      - scm-data:/var/lib/scm
+volumes:
+  scm-config:
+  scm-data:
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{docker-compose.yaml for SCM-Manager}
+\end{figure}
 
 The startup of the container should work without any problems.
 

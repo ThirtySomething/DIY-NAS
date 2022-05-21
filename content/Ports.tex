@@ -38,9 +38,13 @@ this port.
         \hline
         \tsTextBold{Program} & \tsTextBold{Port} & \tsTextBold{Comment}               \\
         \hline
+        \gls{MariaDB}        & 3306              & Database conneciton port           \\
+        \hline
         \gls{OMV}            & 80                & UI                                 \\
         \hline
         \gls{PP}             & 2342              & UI                                 \\
+        \hline
+        \gls{pma}            & 8088              & UI                                 \\
         \hline
         \gls{Portainer}      & 9000              & UI                                 \\
         \hline
@@ -56,6 +60,38 @@ this port.
         \hline
         \gls{ST}             & UPD:21027         & Receive local discovery broadcasts \\
         \hline
-        \tsCaptionLabelTable{Used ports}
+        \tsCaptionLabelTable{Used ports - order by program}
+    \end{longtable}
+\end{small}
+
+\begin{small}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.3\textwidth} | p{0.3\textwidth} | p{0.35\textwidth} | }
+        \hline
+        \tsTextBold{Program} & \tsTextBold{Port} & \tsTextBold{Comment}               \\
+        \hline
+        \gls{OMV}            & 80                & UI                                 \\
+        \hline
+        \gls{SCM}            & 2222              & ssh                                \\
+        \hline
+        \gls{PP}             & 2342              & UI                                 \\
+        \hline
+        \gls{MariaDB}        & 3306              & Database connection port           \\
+        \hline
+        \gls{SCM}            & 8080              & UI                                 \\
+        \hline
+        \gls{pma}            & 8088              & UI                                 \\
+        \hline
+        \gls{Portainer}      & 9000              & UI                                 \\
+        \hline
+        \gls{ST}             & 8384              & UI                                 \\
+        \hline
+        \gls{ST}             & UPD:21027         & Receive local discovery broadcasts \\
+        \hline
+        \gls{ST}             & TCP:22000         & Filetransfer                       \\
+        \hline
+        \gls{ST}             & UDP:22000         & Filetransfer                       \\
+        \hline
+        \tsCaptionLabelTable{Used ports - order by port}
     \end{longtable}
 \end{small}
