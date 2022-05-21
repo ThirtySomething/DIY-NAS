@@ -26,9 +26,35 @@
 %% Content of DIY NAS description
 %% -----------------------------------------------------------------------------
 
-\custInputFileDocker{Pi-hole}
-\custInputFileDocker{SCM-Manager}
-\custInputFileDocker{Syncthing}
-\custInputFileDocker{Watchtower}
-\custInputFileDocker{MariaDB-phpMyAdmin}
-\custInputFileDocker{Mosquitto}
+\subsection{Mosquitto}
+
+I used \gls{mos} in some projects. For testing purposes I've used the public
+version of \gls{mos} or installed locally one on my developer machine. Now
+it's time to run it on my \gls{NAS}. The definition for \gls{DoCo} looks like:
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+version: '2.4'
+services:
+    mosquitto:
+    image: eclipse-mosquitto:latest
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      GUID: 1000
+    ports:
+        - 1883:1883
+        - 9001:9001
+    volumes:
+        - mosquitto-config:/mosquitto/config
+        - mosquitto-data:/mosquitto/data
+        - mosquitto-log:/mosquitto/log
+volumes:
+    mosquitto-config:
+    mosquitto-data:
+    mosquitto-log:
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{docker-compose.yaml for Mosquitto}
+\end{figure}
