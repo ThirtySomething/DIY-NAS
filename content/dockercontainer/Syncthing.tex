@@ -34,11 +34,32 @@ is easy regarding the \href{https://github.com/syncthing/syncthing/blob/main/REA
 of the project.
 \bigbreak
 
-First of all I've created a \gls{Docker} volume. In the next step I've setup
-the container regarding the ports and map the created volume to \tsTextMonospace{/var/syncthing}.
-An important step is to set the environment variables \tsTextMonospace{PUID} and
-\tsTextMonospace{GUID}. Then the container will run \tsTextMonospace{unless stopped}.
-\bigbreak
+The definition for \gls{DoCo} looks like:
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+version: '3.7'
+services:
+  syncthing:
+    image: syncthing/syncthing:latest
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      GUID: 1000
+    ports:
+      - 8384:8384
+      - 21027:21027/udp
+      - 22000:22000/tcp
+      - 22000:22000/udp
+    volumes:
+      - syncthing-data:/var/syncthing
+volumes:
+  syncthing-data:
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{docker-compose.yaml for Syncthing}
+\end{figure}
 
 Setting up the synchronized folders is as usual with \gls{ST}. The result
 may look like this one.
