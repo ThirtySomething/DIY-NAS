@@ -1,0 +1,103 @@
+version: "3.8"
+services:
+  # Media server
+  gerbera:
+    image: gerbera/gerbera:latest
+    restart: unless-stopped
+    environment:
+      - UID=1000
+      - GID=1000
+    ports:
+      - 49494:49494
+    volumes:
+      - gerbera-audio:/media/audio
+      - gerbera-photo:/media/photo
+      - gerbera-video:/media/video
+  # RDBMS
+  mariadb:
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: <password>
+    ports:
+      - 3306:3306
+    volumes:
+      - mariadb-data:/var/lib/mysql
+  # MQTT broker
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - GUID=1000
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - mosquitto-config:/mosquitto/config
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+  # RDBMS admin tool
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    environment:
+      PMA_HOST: <IP of NAS>
+    ports:
+      - 8088:80
+  # Version control system
+  scmmanager:
+    image: cloudogu/scm-manager:latest
+    restart: unless-stopped
+    ports:
+      - 2222:2222
+      - 8080:8080
+    volumes:
+      - scm-config:/var/cache/scm/work
+      - scm-data:/var/lib/scm
+  # Container update utility
+  watchtower:
+    image: containrrr/watchtower
+    restart: unless-stopped
+    environment:
+      # WATCHTOWER_MONITOR_ONLY: 'true'
+      WATCHTOWER_NOTIFICATIONS: email
+      WATCHTOWER_NOTIFICATION_EMAIL_FROM: <email>
+      WATCHTOWER_NOTIFICATION_EMAIL_TO: <email>
+      WATCHTOWER_NOTIFICATION_EMAIL_SERVER: <smtp-server>
+      WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PORT: <smtp-server-port>
+      WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER: <email>
+      WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD: <password>
+      WATCHTOWER_NOTIFICATION_EMAIL_DELAY: 2
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  # Media server
+  gerbera-audio:
+    driver: local
+    driver_opts:
+      type: "cifs"
+      device: "//<IP of NAS>/music"
+      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
+  gerbera-photo:
+    driver: local
+    driver_opts:
+      type: "cifs"
+      device: "//<IP of NAS>/photos"
+      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
+  gerbera-video:
+    driver: local
+    driver_opts:
+      type: "cifs"
+      device: "//<IP of NAS>/video"
+      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
+  # RDBMS
+  mariadb-data:
+  # MQTT broker
+  mosquitto-config:
+  mosquitto-data:
+  mosquitto-log:
+  # Version control system
+  scm-config:
+  scm-data:

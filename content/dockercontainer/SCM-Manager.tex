@@ -38,29 +38,7 @@ is to move them to \gls{git} if possible -- just to have them on a more modern
 version control system.
 \bigbreak
 
-The definition for \gls{DoCo} looks like:
-
-\begin{figure}[H]
-    \scriptsize
-    \centering
-    \begin{BVerbatim}
-version: '3.7'
-services:
-  scmmanager:
-    image: cloudogu/scm-manager:latest
-    restart: unless-stopped
-    ports:
-      - 2222:2222
-      - 8080:8080
-    volumes:
-      - scm-config:/var/cache/scm/work
-      - scm-data:/var/lib/scm
-volumes:
-  scm-config:
-  scm-data:
-    \end{BVerbatim}
-    \tsCaptionLabelFigure{docker-compose.yaml for SCM-Manager}
-\end{figure}
+\custDoCoYaml{SCM}{SCM-Manager}
 
 The startup of the container should work without any problems.
 

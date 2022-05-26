@@ -33,3 +33,5 @@
 \newcommand{\custOMVPlugin}[1]{\input{./content/omvplugin/#1.tex}}
 % Define command for copyright hint
 \newcommand{\custCopyright}[1]{\tsTextUpper{$\copyright$}\the\year{} ThirtySomething}
+% Define command as header for docker compose files
+\newcommand{\custDoCoYaml}[2]{The \tsTextMonospace{docker-compose.yaml} for \gls{#1} looks like:\bigbreak\begin{scriptsize}\VerbatimInput{./content/dockercontainer/#2.yaml}\end{scriptsize}\bigbreak}

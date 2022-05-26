@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  gerbera:
+    image: gerbera/gerbera:latest
+    restart: unless-stopped
+    environment:
+      - UID=1000
+      - GID=1000
+    ports:
+      - 49494:49494
+    volumes:
+      - gerbera-audio:/media/audio
+      - gerbera-photo:/media/photo
+      - gerbera-video:/media/video
+volumes:
+  gerbera-audio:
+    driver: local
+    driver_opts:
+      type: "cifs"
+      device: "//<IP of NAS>/music"
+      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
+  gerbera-photo:
+    driver: local
+    driver_opts:
+      type: "cifs"
+      device: "//<IP of NAS>/photos"
+      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
+  gerbera-video:
+    driver: local
+    driver_opts:
+      type: "cifs"
+      device: "//<IP of NAS>/video"
+      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
