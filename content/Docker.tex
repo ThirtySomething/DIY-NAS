@@ -28,30 +28,30 @@
 
 \section{Docker}
 
-By using \gls{Docker} I want to enhance the \gls{NAS} with features which are not
-available out-of-the-box. Especially with services my previous \gls{NAS} offers
-and which are not native available for \gls{OMV}.
+By using \gls{doc} I want to enhance the \gls{nas} with features which are not
+available out-of-the-box. Especially with services my previous \gls{nas} offers
+and which are not native available for \gls{omv}.
 
 \subsection{Docker installation}
 
-The default location of \gls{Docker} is \tsTextMonospace{/var/lib/docker} on the
+The default location of \gls{doc} is \tsTextMonospace{/var/lib/docker} on the
 system disk. Allthough the system disk is a fast SSD, I want to install
-\gls{Docker} on the slower RAID storage. So I have to change the path of
-\gls{Docker} storage.
+\gls{doc} on the slower RAID storage. So I have to change the path of
+\gls{doc} storage.
 
 \tsImageO{./images/OMV-Docker-Setup.png}{The Docker setup}{\custCopyright{}}{width=\textwidth}
 
-In case \gls{Docker} is already installed, see \href{https://www.reddit.com/r/OpenMediaVault/comments/fl40gf/moving_docker_storage/}{here}
-how to move the \gls{Docker} storage to another location.
+In case \gls{doc} is already installed, see \href{https://www.reddit.com/r/OpenMediaVault/comments/fl40gf/moving_docker_storage/}{here}
+how to move the \gls{doc} storage to another location.
 
 \subsection{Portainer}
 
-To have more comfort in dealing with \gls{Docker} we install also \gls{Portainer}
-from the \gls{OMVE}.
+To have more comfort in dealing with \gls{doc} we install also \gls{pot}
+from the \gls{ove}.
 
 \tsImageO{./images/OMV-Portainer-Setup.png}{The Portainer setup}{\custCopyright{}}{width=\textwidth}
 
-After installation \gls{Portainer} is up and running.
+After installation \gls{pot} is up and running.
 
 \tsImageO{./images/OMV-Portainer-Login.png}{The Portainer login}{\custCopyright{}}{width=\textwidth}
 
@@ -59,25 +59,26 @@ After installation \gls{Portainer} is up and running.
 
 \begin{figure}[H]
     \begin{itemize}
-        \item \tsTextStrikethrough{\href{https://www.portainer.io/}{Portainer} -- UI for docker}
+        \item \tsTextStrikethrough{\gls{pot} -- UI for docker}
               -- done with docker installation.
-        \item \tsTextStrikethrough{\href{https://www.scm-manager.org/}{SCM-Manager} -- SCM with git, svn and hg}
+        \item \tsTextStrikethrough{\gls{scm} -- SCM with git, svn and hg}
               -- done.
-        \item \tsTextStrikethrough{\href{https://mariadb.org/}{MariaDB} -- Database for various projects}
+        \item \tsTextStrikethrough{\gls{mdb} -- Database for various projects}
               -- done.
-        \item \tsTextStrikethrough{\href{https://www.phpmyadmin.net/}{phpMyAdmin} -- UI for the database}
+        \item \tsTextStrikethrough{\gls{pma} -- UI for the database}
               -- done.
-        \item \tsTextStrikethrough{\href{https://mosquitto.org/}{Mosquitto} -- A \href{https://mqtt.org/}{MQTT} broker}
+        \item \tsTextStrikethrough{\gls{mos} -- A \href{https://mqtt.org/}{MQTT} broker}
               -- done.
-        \item \tsTextStrikethrough{\href{https://syncthing.net/}{Syncthing} -- File synchronization}
+        \item \tsTextStrikethrough{\gls{syt} -- File synchronization}
               -- done.
-        \item \href{https://nextcloud.com/}{Nextcloud} -- Own cloud service
+        \item \tsTextStrikethrough{\gls{ncl} -- Private cloud service}
         \item Backup server?
               \begin{itemize}
-                  \item \href{https://restic.net/}{restic}
-                  \item \href{https://www.duplicati.com/}{Duplicati}
+                  \item \gls{rtc}
+                  \item \gls{dup}
               \end{itemize}
-        \item \href{https://docs.min.io/}{MinIO} -- As data sink for backup?
+        \item \gls{mio} -- As data sink for \gls{ncl},
+              \gls{rtc} or \gls{dup}
         \item \tsTextStrikethrough{\href{https://pi-hole.net/}{Pi-hole} -- Adblocker for the network}
               -- won't do that, see section \ref{subsec:Pi-hole} for explanation
         \item \href{https://gotify.net/}{gotify} -- Notification server

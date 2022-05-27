@@ -1,19 +1,5 @@
 version: "3.8"
 services:
-  # Media server
-  gerbera:
-    image: gerbera/gerbera:latest
-    restart: unless-stopped
-    environment:
-      - UID=1000
-      - GID=1000
-    ports:
-      - 1900:1900/udp
-      - 49494:49494/tcp
-    volumes:
-      - gerbera-audio:/media/audio
-      - gerbera-photo:/media/photo
-      - gerbera-video:/media/video
   # RDBMS
   mariadb:
     image: mariadb:latest
@@ -38,6 +24,25 @@ services:
       - mosquitto-config:/mosquitto/config
       - mosquitto-data:/mosquitto/data
       - mosquitto-log:/mosquitto/log
+  # Private cloud
+  nextcloud:
+    image: nextcloud:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: <database>
+      MYSQL_USER: <username>
+      MYSQL_PASSWORD: <password>
+      MYSQL_HOST: <IP of NAS>
+      NEXTCLOUD_ADMIN_USER: <username>
+      NEXTCLOUD_ADMIN_PASSWORD: <password>
+      PHP_MEMORY_LIMIT: 2048M
+      PHP_UPLOAD_LIMIT: 4096M
+    ports:
+      - 8880:80
+    volumes:
+      - nextcloud-config:/var/www/html/config
+      - nextcloud-data:/var/www/html/data
+      - nextcloud-html:/var/www/html
   # RDBMS admin tool
   phpmyadmin:
     image: phpmyadmin:latest
@@ -56,6 +61,20 @@ services:
     volumes:
       - scm-config:/var/cache/scm/work
       - scm-data:/var/lib/scm
+  # File synchronization
+  syncthing:
+    image: syncthing/syncthing:latest
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - GUID=1000
+    ports:
+      - 8384:8384
+      - 21027:21027/udp
+      - 22000:22000/tcp
+      - 22000:22000/udp
+    volumes:
+      - syncthing-data:/var/syncthing
   # Container update utility
   watchtower:
     image: containrrr/watchtower
@@ -74,31 +93,18 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
-  # Media server
-  gerbera-audio:
-    driver: local
-    driver_opts:
-      type: "cifs"
-      device: "//<IP of NAS>/music"
-      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
-  gerbera-photo:
-    driver: local
-    driver_opts:
-      type: "cifs"
-      device: "//<IP of NAS>/photos"
-      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
-  gerbera-video:
-    driver: local
-    driver_opts:
-      type: "cifs"
-      device: "//<IP of NAS>/video"
-      o: "username=<username>,password=<password>,vers=3.0,uid=1000,gid=1000"
   # RDBMS
   mariadb-data:
   # MQTT broker
   mosquitto-config:
   mosquitto-data:
   mosquitto-log:
+  # Private cloud
+  nextcloud-config:
+  nextcloud-data:
+  nextcloud-html:
   # Version control system
   scm-config:
   scm-data:
+  # File synchronization
+  syncthing-data:

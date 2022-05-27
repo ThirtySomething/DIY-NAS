@@ -28,17 +28,17 @@
 
 \subsection{SCM-Manager}
 
-\gls{SCM} provides a comfortable user interface for \gls{git},
+\gls{scm} provides a comfortable user interface for \gls{git},
 \href{https://www.mercurial-scm.org}{Mercurial} and \gls{svn}. Up to now I use
 \gls{svn} for \href{https://en.wikipedia.org/wiki/Version_control}{version control}.
 Some of my repositories are private and I will never publish them to a public
 hoster like \href{https://github.com}{GitHub} allthough they offer private
-repositories. All my other repositories are hosted on my \gls{NAS} -- the plan
+repositories. All my other repositories are hosted on my \gls{nas} -- the plan
 is to move them to \gls{git} if possible -- just to have them on a more modern
 version control system.
 \bigbreak
 
-\custDoCoYaml{SCM}{SCM-Manager}
+\custDoCoYaml{scm}{SCM-Manager}
 
 The startup of the container should work without any problems.
 
@@ -46,7 +46,7 @@ The startup of the container should work without any problems.
 
 After importing my repositories, I've setup a backup job. For this I've updated
 my script \href{https://github.com/ThirtySomething/NAS}{svnExport.sh} that it
-will work for \gls{SCM}. Setting up a cronjob inside a \gls{Docker} container
+will work for \gls{scm}. Setting up a cronjob inside a \gls{doc} container
 is a \href{https://en.wiktionary.org/wiki/pain_in_the_ass}{pita}. The previously
 created volume is required to dynamically export all existing \gls{svn}
 repositories. The command will be something like this one:
@@ -64,8 +64,8 @@ repositories. The command will be something like this one:
 For the script please see appendix \ref{appendix:svnExport.sh}.
 \bigbreak
 
-The job is then setup in \gls{OMV} scheduled tasks accessing the script.
-\tsTextBold{NOTE:} The path to the \gls{SCM} repositories needs to be set
+The job is then setup in \gls{omv} scheduled tasks accessing the script.
+\tsTextBold{NOTE:} The path to the \gls{scm} repositories needs to be set
 inside in the script.
 
 \tsImageO{./images/SCM-Backup-SVN.png}{The SCM-Manager backup task}{\custCopyright{}}{width=\textwidth}

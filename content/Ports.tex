@@ -32,82 +32,82 @@ It's always a good idea to remember the used ports. This section will give
 you an overview about the used ports and the name of the program using this
 this port.
 
-\begin{small}
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.3\textwidth} | p{0.3\textwidth} | p{0.35\textwidth} | }
-        \hline
-        \tsTextBold{Program} & \tsTextBold{Port} & \tsTextBold{Comment}               \\
-        \hline
-        \gls{gb}             & UDP:1900          & SSDP Multicast                     \\
-        \hline
-        \gls{gb}             & TCP:49494         & UI                                 \\
-        \hline
-        \gls{MariaDB}        & 3306              & Database conneciton port           \\
-        \hline
-        \gls{mos}            & 1883              & MQTT                               \\
-        \hline
-        \gls{mos}            & 9001              & MQTT                               \\
-        \hline
-        \gls{OMV}            & 80                & UI                                 \\
-        \hline
-        \gls{PP}             & 2342              & UI                                 \\
-        \hline
-        \gls{pma}            & 8088              & UI                                 \\
-        \hline
-        \gls{Portainer}      & 9000              & UI                                 \\
-        \hline
-        \gls{SCM}            & 8080              & UI                                 \\
-        \hline
-        \gls{SCM}            & 2222              & ssh                                \\
-        \hline
-        \gls{ST}             & 8384              & UI                                 \\
-        \hline
-        \gls{ST}             & TCP:22000         & Filetransfer                       \\
-        \hline
-        \gls{ST}             & UDP:22000         & Filetransfer                       \\
-        \hline
-        \gls{ST}             & UPD:21027         & Receive local discovery broadcasts \\
-        \hline
-        \tsCaptionLabelTable{Used ports - order by program}
-    \end{longtable}
-\end{small}
+\subsection{Ports by application}
 
 \begin{small}
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{ | p{0.3\textwidth} | p{0.3\textwidth} | p{0.35\textwidth} | }
         \hline
-        \tsTextBold{Program} & \tsTextBold{Port} & \tsTextBold{Comment}               \\
+        \tsTextBold{Application} & \tsTextBold{Portnumber} & \tsTextBold{Comment}               \\
         \hline
-        \gls{OMV}            & 80                & UI                                 \\
+        \gls{mdb}                & 3306                    & Database conneciton port           \\
         \hline
-        \gls{mos}            & 1883              & MQTT                               \\
+        \gls{mos}                & 1883                    & MQTT                               \\
         \hline
-        \gls{gb}             & UDP:1900          & SSDP Multicast                     \\
+        \gls{mos}                & 9001                    & MQTT                               \\
         \hline
-        \gls{SCM}            & 2222              & ssh                                \\
+        \gls{ncl}                & 8880                    & UI                                 \\
         \hline
-        \gls{PP}             & 2342              & UI                                 \\
+        \gls{omv}                & 80                      & UI                                 \\
         \hline
-        \gls{MariaDB}        & 3306              & Database connection port           \\
+        \gls{ppr}                 & 2342                    & UI                                 \\
         \hline
-        \gls{SCM}            & 8080              & UI                                 \\
+        \gls{pma}                & 8088                    & UI                                 \\
         \hline
-        \gls{pma}            & 8088              & UI                                 \\
+        \gls{pot}                 & 9000                    & UI                                 \\
         \hline
-        \gls{Portainer}      & 9000              & UI                                 \\
+        \gls{scm}                & 8080                    & UI                                 \\
         \hline
-        \gls{mos}            & 9001              & MQTT                               \\
+        \gls{scm}                & 2222                    & ssh                                \\
         \hline
-        \gls{ST}             & 8384              & UI                                 \\
+        \gls{syt}                 & 8384                    & UI                                 \\
         \hline
-        \gls{ST}             & UPD:21027         & Receive local discovery broadcasts \\
+        \gls{syt}                 & TCP:22000               & Filetransfer                       \\
         \hline
-        \gls{ST}             & TCP:22000         & Filetransfer                       \\
+        \gls{syt}                 & UDP:22000               & Filetransfer                       \\
         \hline
-        \gls{ST}             & UDP:22000         & Filetransfer                       \\
+        \gls{syt}                 & UPD:21027               & Receive local discovery broadcasts \\
         \hline
-        \gls{gb}             & TCP:49494         & UI                                 \\
+        \tsCaptionLabelTable{Ports by application}
+    \end{longtable}
+\end{small}
+
+\subsection{Ports by port number}
+
+\begin{small}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.3\textwidth} | p{0.3\textwidth} | p{0.35\textwidth} | }
         \hline
-        \tsCaptionLabelTable{Used ports - order by port}
+        \tsTextBold{Application} & \tsTextBold{Port number} & \tsTextBold{Comment}               \\
+        \hline
+        \gls{omv}                & 80                       & UI                                 \\
+        \hline
+        \gls{mos}                & 1883                     & MQTT                               \\
+        \hline
+        \gls{scm}                & 2222                     & ssh                                \\
+        \hline
+        \gls{ppr}                 & 2342                     & UI                                 \\
+        \hline
+        \gls{mdb}                & 3306                     & Database connection port           \\
+        \hline
+        \gls{scm}                & 8080                     & UI                                 \\
+        \hline
+        \gls{pma}                & 8088                     & UI                                 \\
+        \hline
+        \gls{ncl}                & 8880                     & UI                                 \\
+        \hline
+        \gls{pot}                 & 9000                     & UI                                 \\
+        \hline
+        \gls{mos}                & 9001                     & MQTT                               \\
+        \hline
+        \gls{syt}                 & 8384                     & UI                                 \\
+        \hline
+        \gls{syt}                 & UPD:21027                & Receive local discovery broadcasts \\
+        \hline
+        \gls{syt}                 & TCP:22000                & Filetransfer                       \\
+        \hline
+        \gls{syt}                 & UDP:22000                & Filetransfer                       \\
+        \hline
+        \tsCaptionLabelTable{Ports by port number}
     \end{longtable}
 \end{small}

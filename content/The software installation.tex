@@ -30,9 +30,9 @@
 
 \subsection{The operating system}
 
-The basic installation of \gls{OMV} works without any problems. This is known
+The basic installation of \gls{omv} works without any problems. This is known
 from debian. Additional \href{https://www.openmediavault.org/?page_id=1206}{Volker Theile},
-the founder of the \gls{OMV} project, and his team have done a very good job.
+the founder of the \gls{omv} project, and his team have done a very good job.
 Thank you guys!
 
 \tsImageO{./images/OMV-Logon.png}{The OMV login page}{\custCopyright{}}{width=\textwidth}
@@ -71,7 +71,7 @@ RAID volume.
 Some common folders should be defined before anything else is done:
 
 \begin{itemize}
-    \item The folder \tsTextMonospace{docker} for the use of \gls{Docker}.
+    \item The folder \tsTextMonospace{docker} for the use of \gls{doc}.
     \item The folder \tsTextMonospace{homes} as base folder for the users home directories.
     \item The folder \tsTextMonospace{music} for the miniDLNA plugin.
     \item The folder \tsTextMonospace{quarantine} for the use of \nameref{subsec:ClamAV}.
@@ -81,7 +81,7 @@ Some common folders should be defined before anything else is done:
 \tsImageO{./images/OMV-Sharedfolders.png}{The OMV shared folders}{\custCopyright{}}{width=\textwidth}
 
 This \tsTextQuoteG{shared folders} are defined as container to be used inside
-of \gls{OMV}. To make them accessible from the network you have to enable
+of \gls{omv}. To make them accessible from the network you have to enable
 services for them.
 
 \subsection{Users}
@@ -110,7 +110,7 @@ that only priviledged users can access them.
 
 \subsubsection{SMB/CIFS}
 
-Transfering data from the old \gls{NAS} to the new one takes a lot of time. To
+Transfering data from the old \gls{nas} to the new one takes a lot of time. To
 speed up the process I searched for some tuning and found this
 \href{https://techie-show.com/open-media-vault-smb-performance-quick-win/}{here}:
 
