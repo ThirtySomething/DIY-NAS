@@ -8,6 +8,8 @@ services:
     ports:
       - 3306:3306
     volumes:
+      - mariadb-config:/etc/mysql/conf.d
       - mariadb-data:/var/lib/mysql
 volumes:
+  mariadb-config:
   mariadb-data:
