@@ -1,12 +1,13 @@
 version: "3.8"
 services:
   mariadb:
-    image: mariadb:latest
-    restart: unless-stopped
+    container_name: mariadb
     environment:
       MARIADB_ROOT_PASSWORD: <password>
+    image: mariadb:latest
     ports:
       - 3306:3306
+    restart: unless-stopped
     volumes:
       - mariadb-config:/etc/mysql/conf.d
       - mariadb-data:/var/lib/mysql

@@ -1,11 +1,12 @@
 version: "3.8"
 services:
   scmmanager:
-    image: cloudogu/scm-manager:latest
-    restart: unless-stopped
+    container_name: scmmanager
+    image: scmmanager/scm-manager:latest
     ports:
       - 2222:2222
       - 8080:8080
+    restart: unless-stopped
     volumes:
       - scm-config:/var/cache/scm/work
       - scm-data:/var/lib/scm
