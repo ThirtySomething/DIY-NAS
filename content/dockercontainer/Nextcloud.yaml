@@ -3,21 +3,21 @@ services:
   nextcloud:
     container_name: nextcloud
     environment:
-      MAIL_FROM_ADDRESS: <email address>
-      MYSQL_DATABASE: <database>
-      MYSQL_HOST: <IP of NAS>
-      MYSQL_PASSWORD: <password>
-      MYSQL_USER: <username>
-      NEXTCLOUD_ADMIN_PASSWORD: <password>
-      NEXTCLOUD_ADMIN_USER: <username>
-      PHP_MEMORY_LIMIT: 2048M
-      PHP_UPLOAD_LIMIT: 4096M
-      SMTP_AUTHTYPE: login
-      SMTP_HOST: <mail host>
-      SMTP_NAME: <email address>
-      SMTP_PASSWORD: <email password>
-      SMTP_PORT: <mail port>
-      SMTP_SECURE: <mail protocol>
+      - MAIL_FROM_ADDRESS:<email address>
+      - MYSQL_DATABASE:<database>
+      - MYSQL_HOST:<IP of NAS>
+      - MYSQL_PASSWORD:<password>
+      - MYSQL_USER:<username>
+      - NEXTCLOUD_ADMIN_PASSWORD:<password>
+      - NEXTCLOUD_ADMIN_USER:<username>
+      - PHP_MEMORY_LIMIT:2048M
+      - PHP_UPLOAD_LIMIT:4096M
+      - SMTP_AUTHTYPE:login
+      - SMTP_HOST:<mail host>
+      - SMTP_NAME:<email address>
+      - SMTP_PASSWORD:<email password>
+      - SMTP_PORT:<mail port>
+      - SMTP_SECURE:<mail protocol>
     image: nextcloud:latest
     ports:
       - 8880:80

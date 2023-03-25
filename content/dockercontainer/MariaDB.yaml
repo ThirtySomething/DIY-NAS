@@ -3,7 +3,9 @@ services:
   mariadb:
     container_name: mariadb
     environment:
-      MARIADB_ROOT_PASSWORD: <password>
+      - MARIADB_ROOT_PASSWORD:<password>
+      - UUID:1000
+      - GUID:100
     image: mariadb:latest
     ports:
       - 3306:3306

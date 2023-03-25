@@ -3,7 +3,9 @@ services:
   phpmyadmin:
     container_name: phpmyadmin
     environment:
-      PMA_HOST: <IP of NAS>
+      - PMA_HOST:<IP of NAS>
+      - PUID=1000
+      - GUID=100
     image: phpmyadmin:latest
     ports:
       - 8088:80

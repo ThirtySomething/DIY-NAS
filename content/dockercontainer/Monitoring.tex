@@ -28,22 +28,17 @@
 
 \subsection{Monitoring}
 
-Beside the configuration of \gls{syt} and \gls{ncl} this is an Additional
-challenge -- setup some \gls{mon} for the host (the \gls{nas}) and the
-\gls{doc} containers. Because of several components required here, the
-stack is more complicated than the others.
-\bigbreak
+Monitoring is from my point of view one of the most important parts of a
+\gls{doc} infrastructure. Otherwise you won't see which container will use
+which resource. So I'm using an extra stack -- thanks to \gls{stp} a ready-to-use
+stack exists. The only change I made is to use an own yaml-file for monitoring.
+The changes are:
+
+\begin{itemize}
+    \item Use a path (of the checkout) as prefix instead of the \tsTextQuoteG{.}
+    \item Using version 3.8 of docker-compose syntax
+    \item Using latest version of the containers
+    \item Using a named volume for alertmanager
+\end{itemize}
 
 \custDoCoYaml{mon}{Monitoring}
-
-https://medium.com/@mertcan.simsek276/docker-monitoring-with-cadvisor-prometheus-and-grafana-adefe1202bf8
-
-https://github.com/stefanprodan/dockprom
-
-https://www.upnxtblog.com/index.php/2019/03/05/monitoring-docker-containers-using-prometheus-cadvisor-grafana/
-
-https://www.devopsart.com/2021/03/step-by-step-to-monitor-docker.html
-
-https://stackoverflow.com/questions/42248198/how-to-mount-a-single-file-in-a-volume
-
-https://www.anovaapps.com/lets-talk-how-to-configure-portainer-and-prometheus-in-containers/

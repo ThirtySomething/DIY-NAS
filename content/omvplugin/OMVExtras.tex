@@ -28,22 +28,22 @@
 
 \subsection{OMV extras}
 
-The \gls{ove} are not available in the plugin list. The way to go to install
-them is described \href{https://forum.openmediavault.org/index.php?thread/39594-omvextras-for-omv6/}{here}.
+The \gls{ove} are not available in the default plugin list. The way to go to
+install them is described \href{https://github.com/OpenMediaVault-Plugin-Developers/packages}{here}.
 Login as user \tsTextMonospace{root} using SSH and enter the following command:
 
 \begin{figure}[H]
     \centering
     \begin{tiny}
         \begin{BVerbatim}
-sudo su -
 wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash
         \end{BVerbatim}
     \end{tiny}
     \tsCaptionLabelFigure{The OMV extras installation}
 \end{figure}
 
-Using this plugin enables the \gls{doc} and \gls{pot} installation
-to enhance the capabilities of the \gls{nas}.
+Using this plugin enables at least the \gls{doc} and \gls{pot} installation
+to enhance the capabilities of the \gls{nas}. Also \gls{rme} is now available
+in the \gls{ove}.
 
 \tsImageO{./images/OMV-Plugin-OMV-Extras.png}{The OMV extras plugin}{\custCopyright{}}{width=\textwidth}

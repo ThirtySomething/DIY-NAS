@@ -45,28 +45,22 @@ of \gls{scm} see the \href{https://scm-manager.org/docs/latest/en/}{documentatio
 
 \tsImageO{./images/SCM-Login.png}{The SCM-Manager login}{\custCopyright{}}{width=\textwidth}
 
-After importing my repositories, I've setup a backup job. For this I've updated
-my script \href{https://github.com/ThirtySomething/NAS}{svnExport.sh} that it
-will work for \gls{scm}. Setting up a cronjob inside a \gls{doc} container
-is a \href{https://en.wiktionary.org/wiki/pain_in_the_ass}{pita}. The previously
-created volume is required to dynamically export all existing \gls{svn}
-repositories. The command will be something like this one:
-
 \begin{figure}[H]
     \scriptsize
     \centering
     \begin{BVerbatim}
-/bin/bash /srv/<omv-raid>/<path-to-script>/svnExport.sh >>
-/srv/<omv-raid>/<path-to-script>/svnExport.log 2>&1 &
+        /bin/bash /srv/<omv-raid>/<path-to-script>/svnExport.sh >>
+        /srv/<omv-raid>/<path-to-script>/svnExport.log 2>&1 &
     \end{BVerbatim}
     \tsCaptionLabelFigure{Cron command for svnExport}
 \end{figure}
 
-For the script please see appendix \ref{appendix:svnExport.sh}.
+To setup a backup of the repositories I'm using a self written Python script.
 \bigbreak
 
 The job is then setup in \gls{omv} scheduled tasks accessing the script.
-\tsTextBold{NOTE:} The path to the \gls{scm} repositories needs to be set
-inside in the script.
 
 \tsImageO{./images/SCM-Backup-SVN.png}{The SCM-Manager backup task}{\custCopyright{}}{width=\textwidth}
+
+\tsTextBold{NOTE:} The script needs some configuration settings. For more
+details have a look \href{https://github.com/ThirtySomething/SCM-Backup}{here}.

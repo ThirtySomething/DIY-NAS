@@ -31,13 +31,18 @@
 \subsection{Use a mini PC in front of the NAS}
 
 Realizing this situation I was searching for alternatives. The first idea was
-to use a \href{https://www.zotac.com/at/product/mini_pcs/id41-plus}{mini PC} in
-front of the \gls{nas}. This failed for some reasons.
+to use an existing \href{https://www.zotac.com/at/product/mini_pcs/id41-plus}{mini PC}
+in front of the \gls{nas}. This failed for some reasons.
 
 \begin{itemize}
-    \item Using the \gls{nas} directly for \gls{doc} volumes
+    \item Using the \gls{nas} directly for \gls{doc} volumes only possible using
+          \linebreak
+          \href{https://en.wikipedia.org/wiki/ISCSI}{iSCSI} -- everything else
+          I was not successful.
     \item The CPU of the mini PC does not support \href{https://en.wikipedia.org/wiki/X86_virtualization}{Intel VT}
-    \item The network as bottleneck for \gls{doc} containers
+          for virtualization in case of \href{https://www.proxmox.com/}{Proxmox} for
+          example.
+    \item The network itself as bottleneck for \gls{doc} containers.
 \end{itemize}
 
 \subsection{Hardware alternatives}

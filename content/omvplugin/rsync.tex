@@ -23,10 +23,27 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Content of DIY NAS description
+%% rsync handling
 %% -----------------------------------------------------------------------------
 
-\subsection{All-In-One}
+\subsection{rsync}
 
-It is also possible to have an \tsTextItalic{All-In-One} file with all
-containers used as one file. \custDoCoYaml{aio}{AIO}
+On Linux it's usual to use \gls{rsy} to synchronize data between different
+locations. \gls{omv} offers a \gls{rsy} service -- it's not a plugin in the
+usual meaning. There are many different scenarios possible -- I'll describe
+two of them. The first one is the sync in the direction of the \gls{nes} to
+the \gls{nos}, also known as rsync push:
+
+\tsImageO{./images/OMV-rsync-01.png}{rsync push 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV-rsync-02.png}{rsync push 2}{\custCopyright{}}{width=\textwidth}
+
+The second one is the sync in the direction of the \gls{nos} to
+the \gls{nes}, also known as rsync pull:
+
+\tsImageO{./images/OMV-rsync-03.png}{rsync pull 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV-rsync-04.png}{rsync pull 2}{\custCopyright{}}{width=\textwidth}
+
+I've both methods to backup/restore my data using the \gls{nos} while setting
+up the \gls{nes}.

@@ -2,6 +2,9 @@ version: "3.8"
 services:
   scmmanager:
     container_name: scmmanager
+    environment:
+      - PUID=1000
+      - GUID=100
     image: scmmanager/scm-manager:latest
     ports:
       - 2222:2222
