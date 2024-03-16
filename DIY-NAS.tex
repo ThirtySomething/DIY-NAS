@@ -23,24 +23,28 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Envelope definition of Latex template
+%% DIY-NAS
 %% -----------------------------------------------------------------------------
 
 % Include meta variables for document
 \input{\jobname-Meta.tex}
 
 % A4 paper, font size
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{\tsDocumentType{}}
 % US spelling
-\usepackage[american]{babel}
+\usepackage[\tsDocumentLanguage{}]{babel}
 % Images and logo in header
 \usepackage{graphicx}
 % To have custom header/footer
 \usepackage{fancyhdr}
 % Enhanced verbatim environments
 \usepackage{fancyvrb}
-% To have figures and other don't fly around
+% To have figures and other environments don't fly around
 \usepackage{float}
+% List of cites/bibliographies
+\usepackage[fixlanguage]{babelbib}
+% To enable the index
+\usepackage{imakeidx}
 % Get filename
 \usepackage{currfile}
 % Dottet lines in toc
@@ -76,31 +80,42 @@
 \usepackage{enumitem}
 % Used for overlay of images
 \usepackage[percent]{overpic}
+% To enable word wrap in bibliography for oversized urls
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+% Used to enable diameter
+\usepackage[nointegrals]{wasysym}
 % Used for overlay of images
 \usepackage{color}
 % Used for overlay of images
 \usepackage{xcolor}
+% To allow underscore as character
+\usepackage{underscore}
 % Used for overlay of images
 \usepackage[outline]{contour}
 % To see the (page)frames used for hyphenation determination
 % \usepackage{showframe}
 % For glossary usage - do not move these statements up!
-\ifUseTsGlossary
-    \usepackage[automake,toc]{glossaries}
-    \usepackage[automake]{glossaries-extra}
+\ifUseTsGlossary%
+    \usepackage[automake,toc]{glossaries}%
+    \usepackage[automake]{glossaries-extra}%
 \fi
-
-% Lore ipsum blind text
-\usepackage{lipsum}
 
 % Include command definition file
 \input{\tsCommandsFile{}}
 
 % Include custom command definition file
-\input{\tsCustomCommandsFile{}}
+\ifUseTsCustomCommands%
+    \input{\tsCustomCommandsFile{}}
+\fi
+
+% Activate dottet lines in table of contents for books
+\tsTOCDottedLine{\tsDocumentType{}}
 
 % No indent of paragraphs
-\setlength{\parindent}{0pt}
+\ifUseTsParagraphNoIndentation%
+    \setlength{\parindent}{0pt}%
+\fi
 
 % Setting of document meta information
 \author{\tsAuthor{}}
@@ -120,24 +135,24 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 % Re-definition of own page style
-\fancypagestyle{plain}{
-    \setlength{\headheight}{15pt}
-    \fancyhf{}
-    \tsFancyData{\tsDocumentType{}}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \renewcommand{\footrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+    \setlength{\headheight}{15pt}%
+    \fancyhf{}%
+    \tsFancyData{\tsDocumentType{}}%
+    \renewcommand{\headrulewidth}{0.4pt}%
+    \renewcommand{\footrulewidth}{0.4pt}%
 }
 
 % Include hyphenation definition file
-\ifUseTsHyphenation
-    \input{\tsHyphenationFile{}}
+\ifUseTsHyphenation%
+    \input{\tsHyphenationFile{}}%
 \fi
 
 % Include glossary definition file and build it
-\ifUseTsGlossary
-    \makeglossaries
-    \input{\tsGlossaryFile{}}
-    \renewcommand*{\glspostdescription}{}
+\ifUseTsGlossary%
+    \makeglossaries%
+    \input{\tsGlossaryFile{}}%
+    \renewcommand*{\glspostdescription}{}%
 \fi
 
 % Setting tolerance for word wrap
@@ -145,17 +160,20 @@
 \tolerance=3000
 
 % Create toc content
-\ifUseTsTOC
-    \makeindex
+\ifUseTsTOC%
+    \makeindex%
 \fi
 
 % Start each section on new page
-\ifUseTsSectionOnNewPage
-    \AddToHook{cmd/section/before}{\clearpage}
+\ifUseTsSectionOnNewPage%
+    \AddToHook{cmd/section/before}{\clearpage}%
 \fi
 
 % Start document here
 \begin{document}
+
+% The order of the parts of a book
+% https://www.thebalancecareers.com/the-parts-of-book-content-2799968
 
 % Define version number as overlay on all pages
 % Version number
@@ -188,8 +206,8 @@
 \pagestyle{plain}
 
 % Include title page
-\ifUseTsTitlePage
-    \input{\tsTitlePageFile{}}
+\ifUseTsTitlePage%
+    \input{\tsTitlePageFile{}}%
 \fi
 
 % Re-start numbering of content pages with arabic numbers
@@ -197,14 +215,14 @@
 \pagenumbering{arabic}
 
 % Toc page - table of content
-\ifUseTsTOC
-    \tableofcontents
+\ifUseTsTOC%
+    \tableofcontents%
 \fi
 
 % Include change history
-\ifUseTsHistory
-    \newpage
-    \input{\tsHistoryFile{}}
+\ifUseTsHistory%
+    \newpage%
+    \input{\tsHistoryFile{}}%
 \fi
 
 % Include content
@@ -212,11 +230,11 @@
 \input{\tsContentFile{}}
 
 % Include appendices
-\ifUseTsAppendix
-    \input{\tsAppendixFile{}}
+\ifUseTsAppendix%
+    \input{\tsAppendixFile{}}%
 \fi
 
-% Start toc on new page
+% Start post document on new page
 \newpage
 
 % Start non content pages with roman numbering
@@ -224,21 +242,36 @@
 \pagenumbering{Roman}
 
 % Print list of figures (lof)
-\ifUseTsLOF
-    \newpage
-    \listoffigures
+\ifUseTsLOF%
+    \newpage%
+    \listoffigures%
 \fi
 
 % Print list of table (lot)
-\ifUseTsLOT
-    \newpage
-    \listoftables
+\ifUseTsLOT%
+    \newpage%
+    \listoftables%
 \fi
 
 % Print glossary
-\ifUseTsGlossary
-    \newpage
-    \printglossaries
+\ifUseTsGlossary%
+    \newpage%
+    \printglossaries%
+\fi
+
+% Print bibliography
+\ifUseTsCitation%
+{%
+    \newpage%
+    \footnotesize%
+    \bibliography{\tsReferencesFile{}}{}%
+    \bibliographystyle{babplain}%
+}%
+\fi
+
+\ifUseTsIndex%
+    \newpage%
+    \printindex{}%
 \fi
 
 \end{document}

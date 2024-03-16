@@ -23,7 +23,7 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Content of DIY NAS description
+%% DIY-NAS - Content - Ports
 %% -----------------------------------------------------------------------------
 
 \section{Ports}
@@ -42,21 +42,19 @@ this port.
         \hline
         \gls{omv}                & 80                       & UI                                 \\
         \hline
-        \gls{pot}                & 9000                     & UI                                 \\
+        \gls{portainerce}        & 9000                     & UI                                 \\
         \hline
-        \gls{rme}                & 8200                     & UPnP                               \\
+        \gls{scmmanager}         & 8123                     & UI                                 \\
         \hline
-        \gls{scm}                & 8123                     & UI                                 \\
+        \gls{scmmanager}         & 2222                     & ssh                                \\
         \hline
-        \gls{scm}                & 2222                     & ssh                                \\
+        \gls{syncthing}          & 8384                     & UI                                 \\
         \hline
-        \gls{syt}                & 8384                     & UI                                 \\
+        \gls{syncthing}          & TCP:22000                & Filetransfer                       \\
         \hline
-        \gls{syt}                & TCP:22000                & Filetransfer                       \\
+        \gls{syncthing}          & UDP:22000                & Filetransfer                       \\
         \hline
-        \gls{syt}                & UDP:22000                & Filetransfer                       \\
-        \hline
-        \gls{syt}                & UPD:21027                & Receive local discovery broadcasts \\
+        \gls{syncthing}          & UPD:21027                & Receive local discovery broadcasts \\
         \hline
         \tsCaptionLabelTable{Ports by application}
     \end{longtable}
@@ -72,19 +70,17 @@ this port.
         \hline
         \gls{omv}                & 80                       & UI                                 \\
         \hline
-        \gls{scm}                & 2222                     & ssh                                \\
+        \gls{scmmanager}         & 2222                     & ssh                                \\
         \hline
-        \gls{scm}                & 8123                     & UI                                 \\
+        \gls{scmmanager}         & 8123                     & UI                                 \\
         \hline
-        \gls{rme}                & 8200                     & UPnP                               \\
+        \gls{syncthing}          & 8384                     & UI                                 \\
         \hline
-        \gls{syt}                & 8384                     & UI                                 \\
+        \gls{syncthing}          & UPD:21027                & Receive local discovery broadcasts \\
         \hline
-        \gls{syt}                & UPD:21027                & Receive local discovery broadcasts \\
+        \gls{syncthing}          & TCP:22000                & Filetransfer                       \\
         \hline
-        \gls{syt}                & TCP:22000                & Filetransfer                       \\
-        \hline
-        \gls{syt}                & UDP:22000                & Filetransfer                       \\
+        \gls{syncthing}          & UDP:22000                & Filetransfer                       \\
         \hline
         \tsCaptionLabelTable{Ports by port number}
     \end{longtable}

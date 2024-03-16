@@ -23,8 +23,9 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Meta data definition DIY NAS description
+%% DIY-NAS - Meta
 %% -----------------------------------------------------------------------------
+
 % Defines the name of the author
 \newcommand{\tsAuthor}[1]{ThirtySomething}
 % Defines the subject of the document
@@ -38,63 +39,82 @@
 % Defines the minor version number of the document - see https://semver.org
 \newcommand{\tsVersionMinor}[1]{0}
 % Defines the patch number of the document - see https://semver.org
-\newcommand{\tsVersionPatch}[1]{19}
+\newcommand{\tsVersionPatch}[1]{21}
 % Defines the version string of the document - see https://semver.org
 \newcommand{\tsVersionString}[1]{V\tsVersionMajor{}.\tsVersionMinor{}.\tsVersionPatch{}}
+
 % ------------------------------------------------------------------------------
 % Definition of document features
 % ------------------------------------------------------------------------------
 % Definition of document type, either article or book
 \newcommand{\tsDocumentType}[1]{article}
 % \newcommand{\tsDocumentType}[1]{book}
-% Switch to enable appendix
+% Definition of document language
+\newcommand{\tsDocumentLanguage}[1]{american}
+% \newcommand{\tsDocumentLanguage}[1]{ngerman}
+%--- Switch to enable appendix
 \newif\ifUseTsAppendix
-\UseTsAppendixtrue
-% Switch to enable glossary
+% \UseTsAppendixtrue
+%--- Switch to enable custom commands
+\newif\ifUseTsCustomCommands
+\UseTsCustomCommandstrue
+%--- Switch to enable bibliography and cites
+\newif\ifUseTsCitation
+% \UseTsCitationtrue
+%--- Switch to enable glossary
 \newif\ifUseTsGlossary
 \UseTsGlossarytrue
-% Switch to enable history
+%--- Switch to enable history
 \newif\ifUseTsHistory
 \UseTsHistorytrue
-% Switch to enable hyphenation
+%--- Switch to enable hyphenation
 \newif\ifUseTsHyphenation
-\UseTsHyphenationtrue
-% Switch to enable list of figures
+% \UseTsHyphenationtrue
+%--- Switch to enable index
+\newif\ifUseTsIndex
+\UseTsIndextrue
+%--- Switch to enable list of figures
 \newif\ifUseTsLOF
 \UseTsLOFtrue
-% Switch to enable logo
+%--- Switch to enable logo
 \newif\ifUseTsLogo
 \UseTsLogotrue
-% Switch to enable list of tables
+%--- Switch to enable list of tables
 \newif\ifUseTsLOT
 \UseTsLOTtrue
-% Switch to enable start of section on new page
+%--- Switch to disable indentation of paragraphs
+\newif\ifUseTsParagraphNoIndentation
+\UseTsParagraphNoIndentationtrue
+%--- Switch to enable start of section on new page
 \newif\ifUseTsSectionOnNewPage
 \UseTsSectionOnNewPagetrue
-% Switch to enable title page
+%--- Switch to enable title page
 \newif\ifUseTsTitlePage
 \UseTsTitlePagetrue
-% Switch to enable table of contents
+%--- Switch to enable table of contents
 \newif\ifUseTsTOC
 \UseTsTOCtrue
+
 %% -----------------------------------------------------------------------------
 %% Meta data definition of Latex template files
 %% -----------------------------------------------------------------------------
 % Defines the filename of the content
-\newcommand{\tsAppendixFile}[1]{DIY-NAS-Appendix.tex}
+\newcommand{\tsAppendixFile}[1]{vendor/LatexTemplate/TSTemplate-Appendix.tex}
 % Defines the filename of the commands
-\newcommand{\tsCommandsFile}[1]{./vendor/LatexTemplate/TSTemplate-Commands.tex}
+\newcommand{\tsCommandsFile}[1]{vendor/LatexTemplate/TSTemplate-Commands.tex}
 % Defines the filename of the content
 \newcommand{\tsContentFile}[1]{DIY-NAS-Content.tex}
 % Defines the filename of the custom commands
 \newcommand{\tsCustomCommandsFile}[1]{DIY-NAS-CustomCommands.tex}
 % Defines the filename of the glossary
-\newcommand{\tsGlossaryFile}[1]{./DIY-NAS-Glossary.tex}
+\newcommand{\tsGlossaryFile}[1]{DIY-NAS-Glossary.tex}
 % Defines the filename of the history
 \newcommand{\tsHistoryFile}[1]{DIY-NAS-History.tex}
 % Defines the filename of the hyphenation
-\newcommand{\tsHyphenationFile}[1]{./vendor/LatexTemplate/TSTemplate-Hyphenation.tex}
+\newcommand{\tsHyphenationFile}[1]{vendor/LatexTemplate/TSTemplate-Hyphenation.tex}
 % Defines the filename of the logo
-\newcommand{\tsLogoFile}[1]{./vendor/LatexTemplate/TSTemplate-Logo.png}
+\newcommand{\tsLogoFile}[1]{vendor/LatexTemplate/Images/TSTemplate-Logo.png}
+% Defines the filename of the references
+\newcommand{\tsReferencesFile}[1]{vendor/LatexTemplate/TSTemplate.bib}
 % Defines the filename of the title
-\newcommand{\tsTitlePageFile}[1]{./vendor/LatexTemplate/TSTemplate-TitlePage.tex}
+\newcommand{\tsTitlePageFile}[1]{vendor/LatexTemplate/TSTemplate-TitlePage.tex}

@@ -1,0 +1,86 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% DIY-NAS - Content - 01 System - 09 Plugins
+%% -----------------------------------------------------------------------------
+
+\subsection{Plugins}
+
+Here a list of selected plugins are shown. There are more plugins available.
+
+\subsubsection{ClamAV}\label{sec:clamav}
+
+To protect the data I want to use an antivirus program. As open source solution
+there is \gls{clamav} available -- and also as plugin for \gls{omv}.
+
+\tsImageO{./images/OMV/01 System/09 Plugins/01 OMV-System-Plugins-ClamAV.png}{ClamAV plugin}{\custCopyright{}}{width=\textwidth}
+
+For the setup, see the \nameref{sec:antivirus} section.
+
+\subsubsection{Docker compose}\label{sec:compose}
+
+This plugin is required to enable \gls{docker} for \gls{omv}.
+
+\tsImageO{./images/OMV/01 System/09 Plugins/02 OMV-System-Plugins-Compose.png}{Compose plugin}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{CPU temperature}
+
+This plugin gives some information about the CPU temperature.
+
+\tsImageO{./images/OMV/01 System/09 Plugins/03 OMV-System-Plugins-CpuTemp.png}{CpuTemp plugin}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{Diskstats}
+
+To collect statistical information about the disks I've installed this plugin.
+
+\tsImageO{./images/OMV/01 System/09 Plugins/04 OMV-System-Plugins-Diskstats.png}{Diskstats plugin}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{OMV extras}
+
+This must be installed as first. If not, other plugins are not available. The
+\gls{omvextras} are not available in the default plugin list. The way to go to
+install them is described \href{https://github.com/OpenMediaVault-Plugin-Developers/packages}{here}.
+Login as user \tsTextMonospace{root} using SSH and enter the following command:
+
+\begin{figure}[H]
+    \centering
+    \begin{tiny}
+        \begin{BVerbatim}
+            wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash
+        \end{BVerbatim}
+    \end{tiny}
+    \tsCaptionLabelFigure{The OMV extras installation}
+\end{figure}
+
+Using this plugin enables at least the \gls{docker} installation to enhance the
+capabilities of the \gls{nas}.
+
+\tsImageO{./images/OMV/01 System/09 Plugins/05 OMV-System-Plugins-OmvExtras.png}{OMV extras plugin}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{Remote mount}\label{sec:remote mount}
+
+To mount my \gls{ds411slim} to my \gls{node304} and then to share it.
+
+\tsImageO{./images/OMV/01 System/09 Plugins/06 OMV-System-Plugins-RemoteMount.png}{Remote mount plugin}{\custCopyright{}}{width=\textwidth}

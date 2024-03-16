@@ -1,0 +1,85 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% DIY-NAS - Content - 04 Services - 04 Rsync
+%% -----------------------------------------------------------------------------
+
+\subsection{rsync}
+
+On Linux it's usual to use \gls{rsync} to synchronize data between different
+locations. \gls{omv} offers a \gls{rsync} service -- it's not a plugin in the
+usual meaning. There are many different scenarios possible -- I'll describe
+two of them. The first one is the sync in the direction of the \gls{node304} to
+the \gls{ds411slim}, also known as rsync push:
+
+\tsImageO{./images/OMV-rsync-01.png}{rsync push 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV-rsync-02.png}{rsync push 2}{\custCopyright{}}{width=\textwidth}
+
+The second one is the sync in the direction of the \gls{ds411slim} to
+the \gls{node304}, also known as rsync pull:
+
+\tsImageO{./images/OMV-rsync-03.png}{rsync pull 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV-rsync-04.png}{rsync pull 2}{\custCopyright{}}{width=\textwidth}
+
+I've used both methods to backup/restore my data using the \gls{ds411slim} while
+setting up the \gls{node304}.
+
+\subsubsection{rsync task overview}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks.png}{rsync task overview}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{rsync homes}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Homes-01.png}{rsync homes 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Homes-02.png}{rsync homes 2}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{rsync images}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Images-01.png}{rsync images 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Images-02.png}{rsync images 2}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{rsync music}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Music-01.png}{rsync music 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Music-02.png}{rsync music 2}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{rsync video}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Video-01.png}{rsync video 1}{\custCopyright{}}{width=\textwidth}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/01 OMV-Services-Rsync-Tasks-Video-02.png}{rsync video 2}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{rsync server settings}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/02 OMV-Services-Rsync-Server-Settings.png}{rsync server settings}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{rsync server modules}
+
+\tsImageO{./images/OMV/04 Services/04 Rsync/03 OMV-Services-Rsync-Server-Modules.png}{rsync server modules}{\custCopyright{}}{width=\textwidth}

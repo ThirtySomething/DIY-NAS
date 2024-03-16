@@ -23,7 +23,7 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Content of DIY NAS description
+%% DIY-NAS - Content - The software installation
 %% -----------------------------------------------------------------------------
 
 \section{The software installation}
@@ -37,140 +37,8 @@ Thank you guys!
 
 \tsImageO{./images/OMV-Logon.png}{The OMV login page}{\custCopyright{}}{width=\textwidth}
 
-\subsection{The disks}
-
-All attached disks are working. The system disk is a NVME SSD with a 250 GB
-capacity. All others are 4 TB WD RED disks.
-
-\tsImageO{./images/OMV-Disks.png}{The OMV disks}{\custCopyright{}}{width=\textwidth}
-
-Before you can create a filesystem on the disks, you have to erase them first.
-
-\subsection{EXT4 storage}
-
-Configuring the \gls{rad} was also less problematic. But there is an important
-point: As long as the \gls{rad} system is created, do not use the \gls{rad}!
-During the \gls{rad} build I was playing around with
-\href{https://www.openmediavault.org/?page_id=2014}{OMV plugins} to see the
-diskstats -- and damaged the \gls{rad} build. After a reboot the system hangs
-on the filesystem check. I was shocked - also about the large amount of blocks
-the fsck found and tried to repair. It took a while to understand what happens.
-Then I've startet from scratch and everything was okay. The creation of the
-filesystem at the end went without problems. A filesystem check found nothing
-to do.
-
-\tsImageO{./images/OMV-Raid.png}{The OMV RAID}{\custCopyright{}}{width=\textwidth}
-
-Setting up a RAID 6 on the four disks using \gls{ext} took aproximately 50 hours.
-
-\subsection{ZFS storage}
-
-Using the \gls{zfs} plugin offers an enterprise level filesystem compared to
-\gls{ext}. The creation of this filesystem is done in a few seconds compared
-to \gls{ext}. Transmitting data through the network to the \gls{nas} seems
-to be much faster than doing this on the same device using \gls{ext}.
-
-\tsImageO{./images/OMV-Plugin-ZFS.png}{The OMV ZFS plugin}{\custCopyright{}}{width=\textwidth}
-
-Testing and playing around with the \gls{zfs} showed that there is a lot of
-knowledge about this filesystem required -- and I'm lacking this knowledge.
-So I decided not to use the \gls{zfs} storage.
-
-\subsection{The filesystem}
-
-This was a simple step -- just mount the previously created \gls{rad} volume.
-
-\tsImageO{./images/OMV-Filesystem.png}{The OMV filesystem on the RAID}{\custCopyright{}}{width=\textwidth}
-
-\subsection{Shared folders}\label{subsec:Shared folders}
-
-Some common folders should be defined before anything else is done:
-
-\begin{itemize}
-    \item The folder \tsTextMonospace{docker} for the use of \gls{doc}.
-    \item The folder \tsTextMonospace{homes} as base folder for the users home directories.
-    \item The folder \tsTextMonospace{music} for the miniDLNA plugin.
-    \item The folder \tsTextMonospace{quarantine} for the use of \nameref{subsec:ClamAV}.
-    \item The folder \tsTextMonospace{video} also for the miniDLNA plugin.
-\end{itemize}
-
-\tsImageO{./images/OMV-Sharedfolders.png}{The OMV shared folders}{\custCopyright{}}{width=\textwidth}
-
-This \tsTextQuoteG{shared folders} are defined as container to be used inside
-of \gls{omv}. To make them accessible from the network you have to enable
-services for them.
-
-\subsection{Users}
-
-In the settings the option \tsTextMonospace{User home directory} is enabled and
-points to the previously created \tsTextMonospace{homes} folder. Then I created
-the users.
-
-\tsImageO{./images/OMV-Users-Directory.png}{The OMV users home directory}{\custCopyright{}}{width=\textwidth}
-
-\subsection{CIFS shares}
-
-Simple - enable the \tsTextMonospace{SMB/CIFS} service, enable the \tsTextMonospace{home
-    directories} and then create shares for the previously defined \tsTextMonospace{shared
-    folders}. Allow read/write access for the administrator of the shares (me),
-the others got read access to them.
-
-\tsImageO{./images/OMV-CIFS-Settings.png}{The OMV CIFS settings}{\custCopyright{}}{width=\textwidth}
-
-\tsImageO{./images/OMV-CIFS-Shares.png}{The OMV CIFS shares}{\custCopyright{}}{width=\textwidth}
-
-As you can see there is actualy no public access to this shares. This means
-that only priviledged users can access them.
-
-\subsection{Tuning}\label{sub:tuning}
-
-\subsubsection{SMB/CIFS}
-
-Transfering data from the old \gls{nas} to the new one takes a lot of time. To
-speed up the process I searched for some tuning and found this
-\href{https://techie-show.com/open-media-vault-smb-performance-quick-win/}{here}:
-
-\tsImageO{./images/OMV-CIFS-Settings-Advanced.png}{The OMV advanced CIFS settings}{\custCopyright{}}{width=\textwidth}
-
-Just add the following tuning parameters as extra options on the SMB/CIFS settings:
-
-\begin{figure}[H]
-    \centering
-    \begin{footnotesize}
-        \begin{BVerbatim}
-            socket options = TCP_NODELAY SO_RCVBUF=65536 SO_SNDBUF=65536
-            read raw = yes
-            write raw = yes
-            max xmit = 65535
-            getwd cache = yes
-        \end{BVerbatim}
-    \end{footnotesize}
-    \tsCaptionLabelFigure{SMB/CIFS tuning options}
-\end{figure}
-
-\subsection{Performance}
-
-For analyzing the speed of the \gls{nas} I've been using the
-\href{https://www.808.dk/?code-csharp-nas-performance}{NAS performance tester}.
-\bigbreak
-
-First the old \gls{nos} is measured. There is a manufacturer specific OS
-called \href{https://www.synology.com/en-us/dsm}{DiskStation Manager DSM}
-running using \gls{ext} as filesystem.
-
-\tsImageO{./images/NAS-Speed-DS411Slim.png}{The speed of the old DS411Slim}{\custCopyright{}}{width=\textwidth}
-
-Then the new \gls{nes} is measured second. This is running \gls{omv} with an
-\gls{ext} filesystem and untuned SMB/CIFS settings.
-
-\tsImageO{./images/NAS-Speed-OMV-ZFS.png}{The speed of the OMV NAS}{\custCopyright{}}{width=\textwidth}
-
-Reading is more than twice faster than before. And writing even more than five
-times faster. This is great!
-\bigbreak
-Applying the settings mentioned in the \nameref{sub:tuning} chapter surprisingly
-result is a slower performance:
-
-\tsImageO{./images/NAS-Speed-OMV-ZFS-tuned.png}{OMV NAS with tuned SMB/CIFS}{\custCopyright{}}{width=\textwidth}
-
-So the final settings will be the default without the tuning settings.
+\custInputFile{01 System}
+\custInputFile{02 Network}
+\custInputFile{03 Storage}
+\custInputFile{04 Services}
+\custInputFile{05 Users}

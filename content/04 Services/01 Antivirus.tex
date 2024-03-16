@@ -1,0 +1,50 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% DIY-NAS - Content - 04 Services - 01 Antivirus
+%% -----------------------------------------------------------------------------
+
+\subsection{Antivirus}\label{sec:antivirus}
+
+The antivirus software requires the plugin \nameref{sec:clamav}. Without this
+plugin this feature is not available.
+
+\subsubsection{Antivirus setup}
+
+In the setup we use the previously defined quarantine folder.
+
+\tsImageO{./images/OMV/04 Services/01 Antivirus/01 OMV-Services-Antivirus-Settings.png}{The antivirus settings}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{Antivirus on access scans}
+
+I enabled a scan on access for specific folders.
+
+\tsImageO{./images/OMV/04 Services/01 Antivirus/02 OMV-Services-Antivirus-OnAccessScans.png}{The antivirus on access scan}{\custCopyright{}}{width=\textwidth}
+
+\subsubsection{Antivirus scheduled scans}
+
+Also I've enabled a scheduled scan for these folders, too.
+
+\tsImageO{./images/OMV/04 Services/01 Antivirus/03 OMV-Services-Antivirus-ScheduledScans.png}{The antivirus scheduled scan}{\custCopyright{}}{width=\textwidth}

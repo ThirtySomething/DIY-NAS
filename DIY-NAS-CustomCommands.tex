@@ -23,15 +23,28 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Custom command definitions of DIY NAS description
+%% DIY-NAS - Custom commands
 %% -----------------------------------------------------------------------------
+
 % Define command to include other content file
 \newcommand{\custInputFile}[1]{\input{./content/#1.tex}}
 % Define command to include other content file of a docker container
 \newcommand{\custInputFileDocker}[1]{\input{./content/dockercontainer/#1.tex}}
 % Define command to include other content file of a docker container
 \newcommand{\custOMVPlugin}[1]{\input{./content/omvplugin/#1.tex}}
+% Define command to include other content file of a docker container
+\newcommand{\custOMVService}[1]{\input{./content/service/#1.tex}}
 % Define command for copyright hint
 \newcommand{\custCopyright}[1]{\tsTextUpper{$\copyright$}\the\year{} ThirtySomething}
 % Define command as header for docker compose files
 \newcommand{\custDoCoYaml}[2]{The \tsTextMonospace{docker-compose.yaml} for \gls{#1} looks like:\bigbreak\begin{scriptsize}\VerbatimInput{./content/dockercontainer/#2.yaml}\end{scriptsize}\bigbreak}
+% Define command to include other content
+\newcommand{\omvSystem}[1]{\input{./content/01 System/#1.tex}}
+% Define command to include other content
+\newcommand{\omvNetwork}[1]{\input{./content/02 Network/#1.tex}}
+% Define command to include other content
+\newcommand{\omvStorage}[1]{\input{./content/03 Storage/#1.tex}}
+% Define command to include other content
+\newcommand{\omvService}[1]{\input{./content/04 Services/#1.tex}}
+% Define command to include other content
+\newcommand{\omvUsers}[1]{\input{./content/05 Users/#1.tex}}

@@ -23,43 +23,35 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Glossary definition of DIY NAS description
+%% DIY-NAS - Glossary
 %% -----------------------------------------------------------------------------
-\newglossaryentry{aio}{name={All-In-One},description={AIO is shorthand for All-In-One}}
-\newglossaryentry{cad}{name={cAdvisor},description={\href{https://github.com/google/cadvisor}{cAdvisor}, an open source container analyzer}}
-\newglossaryentry{cav}{name={ClamAV},description={\href{https://www.clamav.net}{ClamAV}, an open source antivirus software}}
-\newglossaryentry{doc}{name={Docker},description={\href{https://www.docker.com}{Container based virtualization}}}
-\newglossaryentry{dup}{name={Duplicati},description={\href{https://www.duplicati.com/}{Duplicati}, free backup software}}
-\newglossaryentry{ext}{name={EXT4},description={\href{https://en.wikipedia.org/wiki/Ext4}{EXT4}, the default Linux filesystem}}
+
+\newglossaryentry{clamav}{name={ClamAV},description={\href{https://www.clamav.net}{ClamAV}, an open source antivirus software}}
+\newglossaryentry{docker}{name={Docker},description={\href{https://www.docker.com}{Container based virtualization}}}
+\newglossaryentry{ds411slim}{name={Synology DS411Slim},description={The old \gls{nas} system}}
+\newglossaryentry{duplicati}{name={Duplicati},description={\href{https://www.duplicati.com/}{Duplicati}, free backup software}}
+\newglossaryentry{ext4}{name={EXT4},description={\href{https://en.wikipedia.org/wiki/Ext4}{EXT4}, the default Linux filesystem}}
 \newglossaryentry{git}{name={git},description={\href{https://git-scm.com}{git}, a version control system}}
-\newglossaryentry{gra}{name={Grafana},description={\href{https://grafana.com/}{Grafana}, your monitoring stack}}
-\newglossaryentry{mdb}{name={MariaDB},description={\href{https://mariadb.org}{MariaDB}, a \href{https://en.wikipedia.org/wiki/Relational_database}{RDBMS}}}
-\newglossaryentry{mio}{name={MinIO},description={\href{https://min.io}{MinIO}, multi-cloud object storage}}
-\newglossaryentry{mon}{name={Monitoring},description={\href{https://en.wikipedia.org/wiki/System_monitor}{Montoring} system resources and performance in a computer system}}
-\newglossaryentry{mos}{name={Mosquitto},description={\href{https://mosquitto.org}{Mosquitto}, an open source \href{https://en.wikipedia.org/wiki/MQTT}{MQTT} broker}}
+\newglossaryentry{mariadb}{name={MariaDB},description={\href{https://mariadb.org}{MariaDB}, a \href{https://en.wikipedia.org/wiki/Relational_database}{RDBMS}}}
+\newglossaryentry{minio}{name={MinIO},description={\href{https://min.io}{MinIO}, multi-cloud object storage}}
+\newglossaryentry{monitoring}{name={Monitoring},description={\href{https://en.wikipedia.org/wiki/System_monitor}{Montoring} system resources and performance in a computer system}}
+\newglossaryentry{mosquitto}{name={Mosquitto},description={\href{https://mosquitto.org}{Mosquitto}, an open source \href{https://en.wikipedia.org/wiki/MQTT}{MQTT} broker}}
 \newglossaryentry{nas}{name={NAS},description={\href{https://en.wikipedia.org/wiki/Network-attached_storage}{Network Attached Storage}}}
-\newglossaryentry{ncl}{name={Nextcloud},description={\href{https://nextcloud.com}{Nextcloud}, the self-hosted productivity platform that keeps you in control}}
-\newglossaryentry{nes}{name={Node304},description={The new \gls{nas} system}}
-\newglossaryentry{nos}{name={Synology DS411Slim},description={The old \gls{nas} system}}
+\newglossaryentry{nextclout}{name={Nextcloud},description={\href{https://nextcloud.com}{Nextcloud}, the self-hosted productivity platform that keeps you in control}}
+\newglossaryentry{node304}{name={Node304},description={The new \gls{nas} system}}
+\newglossaryentry{omvextras}{name={OMV extras},description={\href{https://wiki.omv-extras.org}{Open Media Vault Extras}, value added plugins to \gls{omv}}}
 \newglossaryentry{omv}{name={OMV},description={\href{https://www.openmediavault.org}{Open Media Vault}, a \gls{nas} operating system}}
-\newglossaryentry{ove}{name={OMV extras},description={\href{https://wiki.omv-extras.org}{Open Media Vault Extras}, value added plugins to \gls{omv}}}
-\newglossaryentry{pho}{name={Pi-hole},description={\href{https://pi-hole.net}{Pi-hole}, network-wide ad blocking}}
-\newglossaryentry{phx}{name={Plex},description={\href{https://www.plex.tv/}{Plex}, audio and video streaming server}}
-\newglossaryentry{pma}{name={phpMyAdmin},description={\href{https://www.phpmyadmin.net}{phpMyAdmin}, an UI for \gls{mdb}}}
-\newglossaryentry{pot}{name={Portainer},description={\href{https://www.portainer.io}{Portainer}, a container management tool}}
-\newglossaryentry{ppr}{name={PhotoPrism},description={\href{https://photoprism.app}{PhotoPrism}, AI powered photo manager}}
-\newglossaryentry{pro}{name={Prometheus},description={\href{https://prometheus.io/}{Prometheus}, an open source software for monitoring services}}
-\newglossaryentry{rad}{name={RAID},description={\href{https://en.wikipedia.org/wiki/RAID}{RAID}, redundant array of independent disks}}
-\newglossaryentry{rme}{name={ReadyMedia},description={\href{https://sourceforge.net/projects/minidlna}{ReadyMedia}, a simple media server software}}
-\newglossaryentry{rsy}{name={rsync},description={\href{https://rsync.samba.org/}{rsync}, fast incremental file transfer}}
-\newglossaryentry{rtc}{name={restic},description={\href{https://restic.net}{restic}, backups done right}}
-\newglossaryentry{scm}{name={SCM-Manager},description={\href{https://scm-manager.org}{SCM-Manager}, a version control system server}}
-\newglossaryentry{stp}{name={Stefan Prodan},description={\href{https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/}{A monitoring solution for Docker hosts, containers and containerized services}}}
-\newglossaryentry{svn}{name={Subversion},description={\href{https://subversion.apache.org}{Subversion}, a version control system}}
-\newglossaryentry{syn}{name={Synology},description={\href{https://www.synology.com}{Manufacturer of \gls{nas} systems}}}
-\newglossaryentry{syt}{name={Syncthing},description={\href{https://syncthing.net}{Syncthing}, file synchronization}}
-\newglossaryentry{tns}{name={True NAS Scale},description={A NAS operating system on base of \href{https://www.debian.org}{Debian} by \href{https://www.ixsystems.com/}{iXsystems}}}
-\newglossaryentry{tso}{name={ThirtySomething},description={A glossary entry}}
-\newglossaryentry{wol}{name={WOL},description={\href{https://en.wikipedia.org/wiki/Wake-on-LAN}{Wake On LAN}, starts computer by specific network signal}}
-\newglossaryentry{wto}{name={Watchtower},description={\href{https://containrrr.dev/watchtower}{Watchtower}, container management utility}}
-\newglossaryentry{zfs}{name={ZFS},description={\href{https://en.wikipedia.org/wiki/ZFS}{ZFS}, an enterprise level filesystem}}
+\newglossaryentry{photoprism}{name={PhotoPrism},description={\href{https://photoprism.app}{PhotoPrism}, AI powered photo manager}}
+\newglossaryentry{phpmyadmin}{name={phpMyAdmin},description={\href{https://www.phpmyadmin.net}{phpMyAdmin}, an UI for \gls{mariadb}}}
+\newglossaryentry{pihole}{name={Pi-hole},description={\href{https://pi-hole.net}{Pi-hole}, network-wide ad blocking}}
+\newglossaryentry{portainerce}{name={Portainer-CE},description={\href{https://www.portainer.io}{Portainer}, a container management tool}}
+\newglossaryentry{raid}{name={RAID},description={\href{https://en.wikipedia.org/wiki/RAID}{RAID}, redundant array of independent disks}}
+\newglossaryentry{restic}{name={restic},description={\href{https://restic.net}{restic}, backups done right}}
+\newglossaryentry{rsync}{name={rsync},description={\href{https://rsync.samba.org/}{rsync}, fast incremental file transfer}}
+\newglossaryentry{scmmanager}{name={SCM-Manager},description={\href{https://scm-manager.org}{SCM-Manager}, a version control system server}}
+\newglossaryentry{stefanprodan}{name={Stefan Prodan},description={\href{https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/}{A monitoring solution for Docker hosts, containers and containerized services}}}
+\newglossaryentry{subversion}{name={Subversion},description={\href{https://subversion.apache.org}{Subversion}, a version control system}}
+\newglossaryentry{syncthing}{name={Syncthing},description={\href{https://syncthing.net}{Syncthing}, file synchronization}}
+\newglossaryentry{synology}{name={Synology},description={\href{https://www.synology.com}{Manufacturer of \gls{nas} systems}}}
+\newglossaryentry{wakeonlan}{name={WOL},description={\href{https://en.wikipedia.org/wiki/Wake-on-LAN}{Wake On LAN}, starts computer by specific network signal}}
+\newglossaryentry{watchtower}{name={Watchtower},description={\href{https://containrrr.dev/watchtower}{Watchtower}, container management utility}}
